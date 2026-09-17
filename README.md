@@ -48,8 +48,14 @@ Go to https://www.macautoandcollision.com/admin/
 - **Photo Gallery** → *Photos* → *Add* → choose "Before & After" and upload both photos, or "Our Work" / "The Shop" and upload one. Add a caption like "2019 Silverado, driver-side collision repair". Click **Save**. The site updates within a couple of minutes.
 - **Contact, Hours & About** → change hours, the about text, or put a message in *Announcement banner* (holidays, moving notices). **Save**.
 - **Customer Reviews** → add a name and the review text. **Save**.
+- **FAQ** → edit or add questions and answers. They show in the FAQ section and as structured data for Google. **Save**.
+- **Contact, Hours & About** also holds: *Hero photo* (a wide shop photo shown behind the headline; empty = dark background), *Google review link* (from Google Business Profile → "Ask for reviews"; the "Review us on Google" buttons appear once it is set), and *Service areas* (the towns listed in the contact and footer text).
 
-Every save is a commit in the GitHub repo, so nothing is ever lost and any change can be undone.
+Every save is a commit in the GitHub repo, so nothing is ever lost and any change can be undone. GitHub also runs `npm test` on every save (Actions tab); a red X there means a content file is broken and the page may not read it.
+
+## Roadmap, changelog and yearly checklist
+- `docs/ROADMAP.md` — what is planned and what is waiting on the shop. `docs/CHANGELOG.md` — what shipped, with a "How to test" line per entry.
+- **Every September** (domain renews 17 Sept): confirm Porkbun auto-renew is on and the card on file is current; ask editors to renew their GitHub tokens (they expire yearly); check the hours on the site; refresh a few gallery photos.
 
 Optional upgrade later: one-click "Sign in with GitHub" instead of a token, by deploying the free [Sveltia CMS Authenticator](https://github.com/sveltia/sveltia-cms-auth) on Cloudflare Workers and adding its URL as `base_url` under `backend` in `admin/config.yml`.
 

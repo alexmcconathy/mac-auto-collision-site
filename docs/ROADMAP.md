@@ -1,9 +1,11 @@
-# Mac Auto & Collision website — improvement roadmap
+# Mac Auto & Collision website — improvement roadmap ✅ | ✅ | ✅ | ✅ | ✅ |
 
 Written 2026-09-17, the day the site went live at https://www.macautoandcollision.com.
 Each phase is small enough to ship on its own. Every push to `main` goes live within two minutes, so each phase is verified locally (`npm test` + a rendered check) before it is pushed.
 
 Status key: ✅ shipped · 🔧 in progress · ⏳ queued (needs the shop) · ⬜ not started
+
+Phases 0–4 shipped 2026-09-17 (v1.1.0–v1.5.0, see CHANGELOG). Phase 5 is the shop's list. Phase 6 is unscheduled.
 
 | # | Phase | Goal | Status |
 |---|-------|------|--------|

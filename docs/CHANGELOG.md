@@ -2,6 +2,13 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.5.0 — 2026-09-17 — Phase 4: operations
+- GitHub Actions workflow runs `npm test` on every push and pull request. A red X on the repo's Actions tab is the early warning that an admin save produced a broken content file.
+- README: FAQ / hero photo / review link / service areas editing notes, CI note, yearly September checklist.
+- Roadmap statuses updated: Phases 0–4 shipped; Phase 5 is the shop's list.
+
+**How to test:** on github.com open the repo → Actions; the latest "Site checks" run is green.
+
 ## 1.4.0 — 2026-09-17 — Phase 3: accessibility & polish
 - Color contrast: small orange text (section labels), the orange buttons, the trust bar and the announcement now use darker oranges that pass WCAG AA (4.9:1 on white). The bright orange stays for the big headline accent and icons.
 - Visible keyboard focus rings on links, buttons and FAQ items.
