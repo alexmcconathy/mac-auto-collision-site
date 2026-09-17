@@ -23,7 +23,7 @@
   ],
   "headline": "",
   "subheadline": "",
-  "sms_number": "",
+  "sms_number": "(205) 746-1847",
   "cloudflare_analytics_token": "",
   "clarity_project_id": "",
   "headlines": [
@@ -52,5 +52,6 @@
   "yelp_url": "https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2",
   "yelp_rating": "5.0",
   "yelp_review_count": "1",
-  "yelp_review_ids": []
+  "yelp_review_ids": [],
+  "owner_background": ""
 }

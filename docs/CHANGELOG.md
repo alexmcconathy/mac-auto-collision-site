@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.10.0 — 2026-09-17 — The shop's answers
+- Deductible line is now "Ask us how to reduce your deductible", with in-house financing mentioned, in the hero card, the insurance section and the FAQ. Trust strip says "Ask about your deductible".
+- Text Us buttons are live (hero, phone bar, fleet section): (205) 746-1847 receives texts.
+- On-site estimates: no charge, within 40 miles of Bessemer, call to schedule. Stated in the band, the FAQ and the fleet section.
+- New "Businesses & fleets" section after How It Works, with a "Set up a fleet account" call-out and an FAQ entry. The estimate form has a "This is a business or fleet vehicle" box.
+- Allen's insurance-background line is no longer on the page. It is a field in /admin (Owner's insurance background) that shows under the comparison once filled in.
+
+**How to test:** hero card shows "Ask us how to reduce your deductible" and a Text Us button; on a phone, tapping Text Us opens a message to the shop. Scroll past How It Works to the fleet section. The form has two checkboxes.
+
 ## 1.9.0 — 2026-09-17 — Rotating headlines, Yelp block
 - The top headline now cycles through a list (four to start) every 7 seconds with a soft fade, small dots to jump between them, pause on hover, and no motion for visitors who have "reduce motion" switched on. Edit the list and the timing in /admin → Contact, Hours & About → Rotating headlines.
 - Yelp in the Reviews section: a card with the star rating and review count (entered in /admin so it never shows a stale API number) linking to the Yelp page, plus up to three of Yelp's own embedded reviews by review ID. The Reviews section shows whenever the Yelp card is configured, even before any typed-in testimonials.

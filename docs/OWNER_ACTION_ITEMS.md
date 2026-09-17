@@ -88,19 +88,20 @@ Recommended pair: Google Search Console (what people searched to find you) and C
 - [ ] **Google Search Console**: sign in at https://search.google.com/search-console with the shop's Google account → **Add property** → **URL prefix** → `https://www.macautoandcollision.com` → choose the **HTML file** method → download the file → send it to Alex to put in the site folder (or use the DNS method at Porkbun) → click **Verify**. Then **Sitemaps** → add `sitemap.xml`.
 - [ ] Optional: **Microsoft Clarity** (free heatmaps and session replays): https://clarity.microsoft.com → sign in → **Add new project** → copy the Project ID → paste into **Microsoft Clarity project ID** in the admin page → **Save**.
 
-## 13. Decisions still needed for the new message (answer these and Alex finishes the copy)
-- [ ] **Deductibles**: what may be said publicly? Site currently says financing only. Check with the shop's insurance agent or an attorney before adding "reduce" or "waive".
-- [ ] **Text messages**: can (205) 746-1847 receive texts? If not, is there a mobile number to use? Enter it in admin → *Text-message number* to switch the Text Us buttons on.
-- [ ] **On-site estimates**: how far, which days/hours, any charge?
-- [ ] **Pickup and delivery**: radius, cost, free with a repair?
-- [ ] **Deductible financing**: through whom, typical terms?
-- [ ] **Allen's insurance background**: one sentence (role, years).
-- [ ] **Team**: three names, roles, years, one photo each. OK to publish names?
-- [ ] **Warranty** on workmanship: yes/no, how long?
-- [ ] **Turnaround**: typical days for small / medium / large repairs.
-- [ ] **Vehicle security**: what is in place (fence, cameras, indoor)?
-- [ ] **Commercial/fleet accounts**: acceptable wording without names?
-- [ ] **"Mac Snap" on-site estimating**: keep the name or drop it?
+## 13. Decisions for the new message (answered 17 Sept unless marked open)
+- [x] **Deductibles**: site says "Ask us how to reduce your deductible" plus in-house financing. (Alex's note: no legal check was done on "reduce"; if an insurer or agent ever objects, the fallback wording is "ask about your deductible options".)
+- [x] **Text messages**: (205) 746-1847 receives texts. Text Us buttons are live.
+- [x] **On-site estimates**: no charge, within 40 miles of Bessemer, call to schedule. On the site.
+- [x] **Pickup and delivery**: offered; terms stay "ask when you call".
+- [x] **Deductible financing**: in-house; site says so.
+- [ ] **Allen's insurance background**: framework is in place, nothing published. When ready, type one or two sentences into admin → Contact, Hours & About → *Owner's insurance background* and it appears under the "Who does your body shop work for?" comparison.
+- [ ] **Team** (names, roles, years, photos): still open. Send them and Alex adds a team section.
+- [x] **Warranty**: no claim on the site. Honesty instead.
+- [x] **Turnaround**: left general (depends on shop load and repair type).
+- [x] **Vehicle security**: nothing claimed.
+- [x] **Commercial/fleet accounts**: new "Businesses & fleets" section, FAQ entry and a form checkbox. No customer names.
+- [x] **"Mac Snap"**: dropped. Update the Google Business Profile description to match (item 4).
+- [ ] **Modern-car photos**: as of the evening of 17 Sept the gallery still holds the six photos uploaded at 7:08 AM (one modern: the red hatchback in the booth). If more were uploaded, they didn't save. In the admin page, after choosing photos, the blue **Save** button at the top must be clicked; the site updates about two minutes later.
 
 ## 14. Later ideas (ask Alex)
 - [ ] **Spanish page**, **online drop-off request**, **insurance partner logos**: see `docs/ROADMAP.md` Phase 6.
