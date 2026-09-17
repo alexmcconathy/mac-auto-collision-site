@@ -100,10 +100,9 @@ Recommended pair: Google Search Console (what people searched to find you) and C
 - [x] **Vehicle security**: nothing claimed.
 - [x] **Commercial/fleet accounts**: new "Businesses & fleets" section, FAQ entry and a form checkbox. No customer names.
 - [x] **"Mac Snap"**: dropped. Update the Google Business Profile description to match (item 4).
-- [ ] **Modern-car photos**: the 6:39 PM save on 17 Sept recorded 25 new photo names in the gallery, but the photo files themselves never made it (too many large phone photos in one save; the admin tool sends them all in one request and it gave up). The site now hides entries whose files are missing, so nothing looks broken, but the photos are not there yet. To fix:
-  1. Admin → **Photo Gallery** → in **Quick photos**, remove the 25 entries that show a broken thumbnail (hover → ✕), then **Save**.
-  2. Re-add them **five at a time**: choose 5 → **Save** → wait for "saved" → next 5. Photos straight from an iPhone are 3 to 8 MB each; if a batch still fails, share them from the phone at "Large" or "Medium" size first, or send them to Alex.
-  3. Names like IMG_3327.JPEG are fine; the admin tool keeps the file name.
+- [ ] **Modern-car photos**: three saves on the evening of 17 Sept (6:39, 6:49, 6:51 PM) each recorded the photo names in the gallery list, but none of the photo files themselves reached the site. Thirty entries now point at files that do not exist, and the original six photos were removed from the list, so the gallery section is hidden until real files arrive. The pattern (list saved, files not) points at the upload step choking on the size of the batch: iPhone photos are 3 to 8 MB each and the admin tool sends a whole save as one request.
+  **Fastest fix:** put the photos in a folder Alex can reach (for example `C:\AMAC_REPO\mac-auto-photos\`) or email them, and he will shrink them to web size and add them in one go.
+  **Or retry in the admin page:** Photo Gallery → Quick photos → remove every entry with a broken thumbnail (hover → ✕) → Save. Then add **three photos at a time**, Save, wait for the "saved" confirmation, next three. If a batch fails, share the photos from the phone at "Medium" size first.
 - [ ] **Logo**: the logo save did not arrive either. Admin → **Contact, Hours & About** → **Logo** → upload the red Mac Auto & Collision artwork (PNG, transparent or white background, 800 px wide or more) on its own, then **Save**. It replaces the small car icon in the header and shows in the footer.
 - [ ] **Logo**: once saving works, admin → **Contact, Hours & About** → **Logo** → upload the red Mac Auto & Collision artwork (PNG, transparent or white background, at least 800 px wide) → **Save**. It replaces the small car icon in the header and shows in the footer.
 
