@@ -53,6 +53,11 @@ Go to https://www.macautoandcollision.com/admin/
 
 Every save is a commit in the GitHub repo, so nothing is ever lost and any change can be undone. GitHub also runs `npm test` on every save (Actions tab); a red X there means a content file is broken and the page may not read it.
 
+## Design
+Chosen by the shop on 2026-09-17 from five rendered mockups: black page (#141414), graphite cards (#1B1B1B), red accent (#D7261E), silver text; layout unchanged from launch. The look lives in the `/* ===== Theme` block at the end of the `<style>` in `index.html`; the rules above it are the original orange look, so a re-skin is a matter of editing that block. Mockup images: `C:\AMAC_REPO\Mac Auto design mockups\` (not in the repo).
+
+**Background photo** (admin → Contact, Hours & About): shown faded behind the headline. Wide photos fill the banner; tall or square ones are shown whole over a blurred copy (decided automatically from the photo's shape). *Background photo fade* picks Light / Medium / Dark. Ask the shop for originals of 1600 px or wider; small files look soft.
+
 ## Roadmap, changelog and yearly checklist
 - `docs/ROADMAP.md` — what is planned and what is waiting on the shop. `docs/CHANGELOG.md` — what shipped, with a "How to test" line per entry.
 - **Every September** (domain renews 17 Sept): confirm Porkbun auto-renew is on and the card on file is current; ask editors to renew their GitHub tokens (they expire yearly); check the hours on the site; refresh a few gallery photos.

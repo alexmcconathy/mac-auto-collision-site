@@ -46,7 +46,8 @@ For each one: search the site for "Mac Auto & Collision Bessemer", open the list
 
 ## 6. Photos (an afternoon)
 - [ ] Open `PHOTO_SHOT_LIST.md` (in the website folder or ask Alex) and take the nine must-have shots with a phone, wide/landscape, in good light.
-- [ ] Set the background photo: admin page → **Contact, Hours & About** → *Background photo* → upload the storefront shot → **Save**. The top of the site now shows it faded behind the headline. *Background photo fade* sets how dark the tint is.
+- [ ] Set the background photo: admin page → **Contact, Hours & About** → *Background photo* → upload the storefront shot → **Save**. The top of the site shows it faded behind the headline. *Background photo fade* sets how dark the tint is (Light shows the most photo).
+- [ ] Use the **original photo from the phone**, not a downsized or texted copy. At least 1600 pixels wide looks sharp on big screens; the current red-and-white car photo is only 371 pixels and looks soft. A **wide (landscape)** shot fills the whole banner; a tall or square one is shown in the middle with a blurred fill on the sides.
 - [ ] Add gallery photos the quick way: admin page → **Photo Gallery** → **Quick photos** → pick as many photos as you like in one go (or drag them in) → **Save**. They show as plain photos, no captions needed.
 - [ ] For a repair you want to show off: **Photo Gallery** → **Captioned photos and Before & After pairs** → **Add**. Choose **Before & After** and upload both. Title like "2019 Silverado, driver side", caption like "Collision repair, blend and paint". **Save**.
 - [ ] The gallery section appears on the site as soon as the first photo is saved (the Black Ford is already there).
