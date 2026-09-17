@@ -2,6 +2,12 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.7.1 — 2026-09-17 — Lighter photo fade, admin control of the background photo
+- The tint over the top photo is lighter, so more of the picture shows. Headline and text keep a soft shadow for readability; the checklist card is a little more opaque.
+- Admin → Contact, Hours & About: the upload field is now called **Background photo**, and a new **Background photo fade** choice (Light, Medium, Dark) sets the tint. Light is the default.
+
+**How to test:** open the site; the car photo is clearly visible behind the headline. In /admin/ change the fade to Dark and Save; two minutes later the photo is much darker. Upload a different photo; the top of the site changes.
+
 ## 1.7.0 — 2026-09-17 — New look: Garage Red palette, Workshop layout
 - Colors: black page (#141414), graphite cards (#1B1B1B), red accent (#D7261E), silver text. Chosen by the shop from five mockups.
 - Layout unchanged: headline left, accident checklist right, same sections. The *Hero photo* from the admin page now shows as a faded full-width picture behind the headline, darkest on the left so the text stays readable.

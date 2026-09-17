@@ -49,7 +49,7 @@ Go to https://www.macautoandcollision.com/admin/
 - **Contact, Hours & About** → change hours, the about text, or put a message in *Announcement banner* (holidays, moving notices). **Save**.
 - **Customer Reviews** → add a name and the review text. **Save**.
 - **FAQ** → edit or add questions and answers. They show in the FAQ section and as structured data for Google. **Save**.
-- **Contact, Hours & About** also holds: *Hero photo* (a wide shop photo shown behind the headline; empty = dark background), *Google review link* (from Google Business Profile → "Ask for reviews"; the "Review us on Google" buttons appear once it is set), and *Service areas* (the towns listed in the contact and footer text).
+- **Contact, Hours & About** also holds: *Background photo* (a wide shop photo shown faded behind the headline; empty = plain black) and *Background photo fade* (Light, Medium or Dark tint), *Google review link* (from Google Business Profile → "Ask for reviews"; the "Review us on Google" buttons appear once it is set), and *Service areas* (the towns listed in the contact and footer text).
 
 Every save is a commit in the GitHub repo, so nothing is ever lost and any change can be undone. GitHub also runs `npm test` on every save (Actions tab); a red X there means a content file is broken and the page may not read it.
 

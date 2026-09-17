@@ -19,5 +19,6 @@
     "Pleasant Grove",
     "the greater Birmingham area"
   ],
-  "form_endpoint": ""
+  "form_endpoint": "",
+  "hero_fade": "Light"
 }

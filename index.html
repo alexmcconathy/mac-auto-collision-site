@@ -297,8 +297,11 @@
   .hero::after{display:none}
   .hero .eyebrow{color:#ff8a82} .hero .lede{color:#c9c9c9} .hero h1 span{color:var(--brand)}
   .hero.has-photo{background-size:cover;background-position:center}
-  .hero.has-photo::before{background:linear-gradient(90deg,rgba(8,8,8,.96) 0%,rgba(8,8,8,.86) 45%,rgba(8,8,8,.62) 100%)}
-  .hero-card{background:rgba(0,0,0,.45);border-color:rgba(255,255,255,.12);backdrop-filter:blur(8px)}
+  .hero.has-photo::before{background:linear-gradient(90deg,rgba(8,8,8,.84) 0%,rgba(8,8,8,.6) 45%,rgba(8,8,8,.28) 100%)}
+  .hero.has-photo.fade-medium::before{background:linear-gradient(90deg,rgba(8,8,8,.9) 0%,rgba(8,8,8,.74) 45%,rgba(8,8,8,.45) 100%)}
+  .hero.has-photo.fade-dark::before{background:linear-gradient(90deg,rgba(8,8,8,.96) 0%,rgba(8,8,8,.86) 45%,rgba(8,8,8,.62) 100%)}
+  .hero.has-photo h1,.hero.has-photo .lede,.hero.has-photo .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.7)}
+  .hero-card{background:rgba(0,0,0,.55);border-color:rgba(255,255,255,.12);backdrop-filter:blur(10px)}
   .hero-card li svg{color:#ff6b62}
   .trust{background:var(--brand)}
   .eyebrow{color:#ff6b62}
@@ -685,7 +688,7 @@
       document.querySelectorAll('.js-hours-weekend').forEach(function(el){ el.textContent = c.hours.weekend || 'Closed'; });
     }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
-    if (c.hero_image && String(c.hero_image).trim()){ var hero = document.getElementById('top'); hero.style.backgroundImage = 'url("' + img(c.hero_image).replace(/"/g, '') + '")'; hero.classList.add('has-photo'); }
+    if (c.hero_image && String(c.hero_image).trim()){ var hero = document.getElementById('top'); hero.style.backgroundImage = 'url("' + img(c.hero_image).replace(/"/g, '') + '")'; hero.classList.add('has-photo'); var fade = String(c.hero_fade || 'Light').toLowerCase(); hero.classList.remove('fade-medium', 'fade-dark'); if (fade === 'medium' || fade === 'dark') hero.classList.add('fade-' + fade); }
     if (c.google_review_url && /^https?:\/\//.test(c.google_review_url)){ document.querySelectorAll('.js-google-review').forEach(function(a){ a.href = c.google_review_url; a.hidden = false; }); }
     if (Array.isArray(c.service_areas) && c.service_areas.length){
       var names = c.service_areas.map(function(x){ return typeof x === 'string' ? x : (x && x.name) || ''; }).filter(Boolean);

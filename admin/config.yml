@@ -36,7 +36,8 @@ collections:
               - { label: "Weekday close", name: "weekday_close", widget: "string", default: "5:00 PM" }
               - { label: "Saturday & Sunday", name: "weekend", widget: "string", default: "Closed" }
           - { label: "About the shop", name: "about", widget: "text", hint: "Leave a blank line between paragraphs." }
-          - { label: "Hero photo (wide shot of the shop; leave empty for the plain dark background)", name: "hero_image", widget: "image", required: false }
+          - { label: "Background photo (shows faded behind the headline at the top of the site; upload a wide shot of the shop or a finished car; leave empty for plain black)", name: "hero_image", widget: "image", required: false }
+          - { label: "Background photo fade (how much dark tint sits over the photo)", name: "hero_fade", widget: "select", options: ["Light", "Medium", "Dark"], default: "Light", required: false }
           - { label: "Google review link (from Google Business Profile → Ask for reviews; leave empty to hide the button)", name: "google_review_url", widget: "string", required: false }
           - { label: "Service areas (towns you serve, in order)", name: "service_areas", widget: "list", required: false, default: ["Bessemer", "Hueytown", "McCalla", "Helena", "Hoover", "the greater Birmingham area"] }
 
