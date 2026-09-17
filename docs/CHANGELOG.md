@@ -2,6 +2,12 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.7.2 — 2026-09-17 — Background photo scaling
+- A tall or square background photo used to be blown up to fill the wide banner, so only a zoomed slice showed. Now the site checks the photo's shape: wide photos still fill the banner; tall or square ones are shown whole, centered, over a blurred copy of themselves that fills the rest. On phones the photo fills the (tall) hero as before.
+- Tip for the shop: the sharper the original, the better. A photo at least 1600 px wide is ideal; the current one is 371 px and will look soft on large screens.
+
+**How to test:** with a square photo set as Background photo, the whole car is visible in the middle of the banner with a soft blurred version behind it. Upload a wide landscape photo and it fills edge to edge.
+
 ## 1.7.1 — 2026-09-17 — Lighter photo fade, admin control of the background photo
 - The tint over the top photo is lighter, so more of the picture shows. Headline and text keep a soft shadow for readability; the checklist card is a little more opaque.
 - Admin → Contact, Hours & About: the upload field is now called **Background photo**, and a new **Background photo fade** choice (Light, Medium, Dark) sets the tint. Light is the default.
