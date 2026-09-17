@@ -27,8 +27,16 @@ collections:
           - { label: "Phone", name: "phone", widget: "string" }
           - { label: "Email (estimate requests go here)", name: "email", widget: "string" }
           - { label: "Estimate form delivery address (Formspree form URL, e.g. https://formspree.io/f/abcdwxyz; leave empty and the form uses the visitor's email app)", name: "form_endpoint", widget: "string", required: false, pattern: ["^$|^https://(formspree\\.io|usebasin\\.com|getform\\.io|formsubmit\\.co)/.+", "Must be a Formspree (or Basin/Getform/FormSubmit) form URL starting with https://"] }
-          - { label: "Headline (leave empty for the default; use | where the red second line starts, e.g. We work for you, | not your insurance company.)", name: "headline", widget: "string", required: false }
-          - { label: "Sub-headline under the headline (leave empty for the default)", name: "subheadline", widget: "string", required: false }
+          - label: "Rotating headlines (the top of the site cycles through these; the first one shows first)"
+            name: "headlines"
+            widget: "list"
+            required: false
+            summary: "{{fields.line1}} {{fields.line2}}"
+            fields:
+              - { label: "Line 1 (white)", name: "line1", widget: "string" }
+              - { label: "Line 2 (red)", name: "line2", widget: "string", required: false }
+              - { label: "Sentence under it", name: "subline", widget: "string", required: false }
+          - { label: "Seconds between headlines (4 to 30)", name: "headline_seconds", widget: "number", value_type: "int", min: 4, max: 30, default: 7, required: false }
           - { label: "Text-message number (only if this number can receive texts; leave empty to hide the Text Us buttons)", name: "sms_number", widget: "string", required: false }
           - { label: "Announcement banner (leave blank to hide)", name: "announcement", widget: "string", required: false, hint: "Example: Closed Friday July 4th. Reopening Monday." }
           - label: "Hours"
@@ -43,6 +51,10 @@ collections:
           - { label: "Microsoft Clarity project ID (from clarity.microsoft.com; leave empty for none)", name: "clarity_project_id", widget: "string", required: false }
           - { label: "Background photo (shows faded behind the headline at the top of the site; upload a wide shot of the shop or a finished car; leave empty for plain black)", name: "hero_image", widget: "image", required: false }
           - { label: "Background photo fade (how much dark tint sits over the photo)", name: "hero_fade", widget: "select", options: ["Light", "Medium", "Dark"], default: "Light", required: false }
+          - { label: "Yelp page link", name: "yelp_url", widget: "string", required: false, default: "https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2" }
+          - { label: "Yelp rating (e.g. 5.0; leave empty to hide the Yelp card)", name: "yelp_rating", widget: "string", required: false }
+          - { label: "Yelp review count (e.g. 12)", name: "yelp_review_count", widget: "string", required: false }
+          - { label: "Yelp embedded reviews: paste review IDs, one per line (on Yelp open a review → ⋯ → Embed review → copy the data-review-id value). Up to 3 show.", name: "yelp_review_ids", widget: "list", required: false, field: { label: "Review ID", name: "id", widget: "string" } }
           - { label: "Google review link (from Google Business Profile → Ask for reviews; leave empty to hide the button)", name: "google_review_url", widget: "string", required: false }
           - { label: "Service areas (towns you serve, in order)", name: "service_areas", widget: "list", required: false, default: ["Bessemer", "Hueytown", "McCalla", "Helena", "Hoover", "the greater Birmingham area"] }
 

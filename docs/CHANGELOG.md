@@ -2,6 +2,12 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.9.0 — 2026-09-17 — Rotating headlines, Yelp block
+- The top headline now cycles through a list (four to start) every 7 seconds with a soft fade, small dots to jump between them, pause on hover, and no motion for visitors who have "reduce motion" switched on. Edit the list and the timing in /admin → Contact, Hours & About → Rotating headlines.
+- Yelp in the Reviews section: a card with the star rating and review count (entered in /admin so it never shows a stale API number) linking to the Yelp page, plus up to three of Yelp's own embedded reviews by review ID. The Reviews section shows whenever the Yelp card is configured, even before any typed-in testimonials.
+
+**How to test:** watch the headline change after a few seconds; hover it to pause; click a dot to jump. In /admin set Yelp rating 5.0 and count 1, Save; the Reviews section appears with a Yelp card.
+
 ## 1.8.0 — 2026-09-17 — The message from the 17 Sept meeting
 - Headline is now "We work for you, not your insurance company." with the sub-line "Family-owned in Bessemer. We come to you for the estimate, handle the claim, and fight for the repair you're owed." Both can be overridden from /admin (Headline, Sub-headline).
 - Primary button: "Request an On-Site Estimate". A "Text Us" button appears (hero and phone bar) once a text-capable number is entered in /admin.

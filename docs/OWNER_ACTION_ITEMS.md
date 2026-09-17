@@ -75,6 +75,13 @@ Today the form opens the visitor's own email app. With Formspree the request is 
 ## 11. One-click admin login (optional, 20 minutes, only if several people will edit)
 - [ ] Follow `docs/ONE_CLICK_LOGIN.md` in the website folder (or ask Alex). It is a free Cloudflare account plus a GitHub "OAuth App"; no monthly cost. After it, editors click **Sign in with GitHub** instead of pasting a token.
 
+## 11b. Point the Yelp listing at the website and keep the Yelp card current (10 minutes)
+- [ ] Go to https://biz.yelp.com and sign in (or click **Claim** if the page has never been claimed; Yelp verifies by phone call to (205) 746-1847 or by email).
+- [ ] Left menu → **Business Information** → **Edit** next to *Website* → enter `https://www.macautoandcollision.com` → **Save**. Yelp reviews edits before they show; allow a day or two.
+- [ ] While there, confirm the address, phone and hours match the site, and upload a couple of the same photos.
+- [ ] Optional, to show a real Yelp review on the site: on yelp.com open one of the shop's reviews → click the **⋯** menu on the review → **Embed review** → in the code shown, copy the value after `data-review-id="` → website admin page → **Contact, Hours & About** → **Yelp embedded reviews** → **Add** → paste → **Save**.
+- [ ] Whenever the Yelp rating or review count changes, update **Yelp rating** and **Yelp review count** in the admin page (currently 5.0 and 1).
+
 ## 12. Turn on traffic monitoring (10 minutes, free)
 Recommended pair: Google Search Console (what people searched to find you) and Cloudflare Web Analytics (how many visits, from where, which pages). Both free, no cookie banner needed.
 - [ ] **Cloudflare Web Analytics**: sign in at https://dash.cloudflare.com (free account) → **Web Analytics** → **Add a site** → enter `macautoandcollision.com` → choose "JS snippet" → copy the 32-character token from the snippet (`"token":"..."`). Admin page → **Contact, Hours & About** → paste into **Cloudflare Web Analytics token** → **Save**. Visits show in the Cloudflare dashboard within a day.

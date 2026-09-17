@@ -58,6 +58,10 @@ Chosen by the shop on 2026-09-17 from five rendered mockups: black page (#141414
 
 **Message** (since v1.8.0, from the 17 Sept 2026 meeting): headline "We work for you, not your insurance company", on-site estimating band, "Who does your body shop work for?" comparison, AI-estimate and deductible bullets/FAQs. Deductible wording is deliberately limited to financing until the shop's agent or attorney confirms what else may be advertised. Headline and sub-headline can be overridden in admin → Contact, Hours & About.
 
+**Rotating headlines** (v1.9.0): admin → Contact, Hours & About → *Rotating headlines* is a list of line 1 / line 2 (red) / sentence. The hero cycles through them every *Seconds between headlines* (default 7) with a fade, dots to jump, pause on hover, and no motion when the visitor prefers reduced motion. The first item is what search engines and the social card see.
+
+**Yelp block** (v1.9.0): the Reviews section shows a Yelp card when *Yelp rating* is filled in (rating and count are typed in by the shop; there is no live API on a static site). *Yelp embedded reviews* takes Yelp review IDs (Yelp → a review → ⋯ → Embed review → the `data-review-id` value); up to three render through Yelp's official `widgets.js`. Update the rating/count whenever the Yelp page changes.
+
 **Text Us buttons** appear only when *Text-message number* is filled in (the number must be able to receive SMS).
 
 **Traffic monitoring**: admin → Contact, Hours & About → paste a *Cloudflare Web Analytics token* and/or a *Microsoft Clarity project ID*; the page loads the matching script only when a value is present and looks valid. Google Search Console needs a one-time HTML file in the repo root or a DNS TXT record at Porkbun (ask Alex).

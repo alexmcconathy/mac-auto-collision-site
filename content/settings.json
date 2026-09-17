@@ -25,5 +25,32 @@
   "subheadline": "",
   "sms_number": "",
   "cloudflare_analytics_token": "",
-  "clarity_project_id": ""
+  "clarity_project_id": "",
+  "headlines": [
+    {
+      "line1": "We work for you,",
+      "line2": "not your insurance company.",
+      "subline": "Family-owned in Bessemer. We come to you for the estimate, handle the claim, and fight for the repair you're owed."
+    },
+    {
+      "line1": "Don't take the insurer's",
+      "line2": "first number.",
+      "subline": "Many first estimates are written by software from photos. We inspect the whole car and file for the rest."
+    },
+    {
+      "line1": "We come to you",
+      "line2": "for the estimate.",
+      "subline": "Your driveway, your workplace, the tow yard. A written estimate on the spot, then we handle the claim."
+    },
+    {
+      "line1": "Your car. Your choice of shop.",
+      "line2": "Our fight.",
+      "subline": "Alabama law lets you pick where your car is repaired. Pick the shop that works for you."
+    }
+  ],
+  "headline_seconds": 7,
+  "yelp_url": "https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2",
+  "yelp_rating": "5.0",
+  "yelp_review_count": "1",
+  "yelp_review_ids": []
 }

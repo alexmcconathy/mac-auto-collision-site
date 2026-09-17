@@ -237,6 +237,26 @@
   .check-row{display:flex;gap:.6rem;align-items:center;font-weight:600;margin:-.25rem 0 1rem}
   .check-row input{width:auto;margin:0;accent-color:var(--brand)}
 
+  /* rotating headline */
+  .hero h1,.hero .lede{transition:opacity .45s ease,transform .45s ease}
+  .hero .is-swapping h1,.hero .is-swapping .lede{opacity:0;transform:translateY(6px)}
+  .hero-dots{display:flex;gap:.45rem;margin-top:1.1rem}
+  .hero-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);cursor:pointer}
+  .hero-dots button[aria-current="true"]{background:var(--brand);width:22px;border-radius:5px}
+  @media (prefers-reduced-motion:reduce){.hero h1,.hero .lede{transition:none}}
+
+  /* yelp block */
+  .yelp-wrap{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:1.25rem;align-items:start;margin-bottom:1.5rem}
+  @media (max-width:900px){.yelp-wrap{grid-template-columns:1fr}}
+  .yelp-card{background:#1b1b1b;border:1px solid #2a2a2a;border-radius:var(--radius);padding:1.4rem;display:flex;flex-direction:column;gap:.5rem}
+  .yelp-card .yelp-mark{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.6rem;color:#fff;letter-spacing:.01em}
+  .yelp-card .yelp-mark span{color:#ff1a1a}
+  .yelp-stars{color:#ff6b62;font-size:1.35rem;letter-spacing:.1em;line-height:1}
+  .yelp-card b{font-size:1.6rem;font-family:"Barlow Condensed",sans-serif}
+  .yelp-card small{color:#bdbdbd}
+  .yelp-embeds{display:grid;gap:1rem}
+  .yelp-embeds .yelp-review{display:block;background:#fff;border-radius:12px;padding:.75rem 1rem;color:#222;font-size:.95rem}
+
   /* estimate form */
   .form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -406,6 +426,7 @@
           Call the Shop
         </a>
       </div>
+      <div class="hero-dots" id="heroDots" hidden aria-label="Headline"></div>
     </div>
     <div class="hero-card">
       <h3>Been in an accident?</h3>
@@ -580,6 +601,16 @@
       <span class="eyebrow">Customers</span>
       <h2>What our customers say</h2>
     </div>
+    <div class="yelp-wrap" id="yelpWrap" hidden>
+      <a class="yelp-card" id="yelpCard" href="https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2" target="_blank" rel="noopener" style="text-decoration:none">
+        <span class="yelp-mark">On <span>Yelp</span></span>
+        <span class="yelp-stars" id="yelpStars" aria-hidden="true"></span>
+        <b id="yelpRating"></b>
+        <small id="yelpCount"></small>
+        <span class="btn btn-primary" style="align-self:flex-start;margin-top:.5rem">Read our Yelp reviews</span>
+      </a>
+      <div class="yelp-embeds" id="yelpEmbeds"></div>
+    </div>
     <div class="grid grid-3" id="reviewGrid"></div>
     <p style="margin-top:1.5rem"><a class="btn btn-primary js-google-review" hidden href="#" target="_blank" rel="noopener">Leave us a review on Google</a></p>
   </div>
@@ -751,12 +782,32 @@
       document.querySelectorAll('.js-hours-weekday').forEach(function(el){ el.textContent = wk; });
       document.querySelectorAll('.js-hours-weekend').forEach(function(el){ el.textContent = c.hours.weekend || 'Closed'; });
     }
-    if (c.headline && String(c.headline).trim()){ var hh = document.getElementById('heroHeadline'); var parts = String(c.headline).split('|'); hh.innerHTML = esc(parts[0].trim()) + (parts[1] ? '<br><span>' + esc(parts[1].trim()) + '</span>' : ''); }
-    if (c.subheadline && String(c.subheadline).trim()){ document.getElementById('heroSub').textContent = c.subheadline; }
+    var hh = document.getElementById('heroHeadline'), hs = document.getElementById('heroSub');
+    function setHeadline(item){ hh.innerHTML = esc(item.line1 || '') + (item.line2 ? '<br><span>' + esc(item.line2) + '</span>' : ''); if (item.subline) hs.textContent = item.subline; }
+    var list = Array.isArray(c.headlines) ? c.headlines.filter(function(h){ return h && h.line1; }) : [];
+    if (!list.length && c.headline && String(c.headline).trim()){ var p2 = String(c.headline).split('|'); list = [{ line1: p2[0].trim(), line2: (p2[1] || '').trim(), subline: c.subheadline || '' }]; }
+    if (list.length){
+      setHeadline(list[0]);
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var every = Math.max(4, Math.min(30, Number(c.headline_seconds) || 7)) * 1000;
+      if (list.length > 1 && !reduced){
+        var dots = document.getElementById('heroDots'), idx = 0, timer;
+        var col = hh.parentNode;
+        function go(n){ idx = (n + list.length) % list.length; col.classList.add('is-swapping'); setTimeout(function(){ setHeadline(list[idx]); col.classList.remove('is-swapping'); dots.querySelectorAll('button').forEach(function(b, i){ b.setAttribute('aria-current', i === idx ? 'true' : 'false'); }); }, 450); }
+        function arm(){ clearInterval(timer); timer = setInterval(function(){ go(idx + 1); }, every); }
+        dots.innerHTML = list.map(function(h, i){ return '<button type="button" aria-label="Headline ' + (i + 1) + '" aria-current="' + (i === 0 ? 'true' : 'false') + '"></button>'; }).join('');
+        dots.querySelectorAll('button').forEach(function(b, i){ b.addEventListener('click', function(){ go(i); arm(); }); });
+        dots.hidden = false;
+        col.addEventListener('mouseenter', function(){ clearInterval(timer); }); col.addEventListener('mouseleave', arm);
+        document.addEventListener('visibilitychange', function(){ if (document.hidden) clearInterval(timer); else arm(); });
+        arm();
+      }
+    }
     if (c.sms_number){ var smsDigits = String(c.sms_number).replace(/\D/g, ''); if (smsDigits.length >= 10){ var smsHref = 'sms:+1' + smsDigits.slice(-10) + '?&body=' + encodeURIComponent("Hi, I'd like an estimate for my vehicle."); document.querySelectorAll('.js-sms').forEach(function(a){ a.href = smsHref; a.hidden = false; }); } }
     if (c.cloudflare_analytics_token && /^[a-f0-9]{32}$/i.test(String(c.cloudflare_analytics_token).trim())){ var cf = document.createElement('script'); cf.defer = true; cf.src = 'https://static.cloudflareinsights.com/beacon.min.js'; cf.setAttribute('data-cf-beacon', JSON.stringify({ token: String(c.cloudflare_analytics_token).trim() })); document.head.appendChild(cf); }
     if (c.clarity_project_id && /^[a-z0-9]{6,20}$/i.test(String(c.clarity_project_id).trim())){ var cid = String(c.clarity_project_id).trim(); window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); }; var cl = document.createElement('script'); cl.async = true; cl.src = 'https://www.clarity.ms/tag/' + cid; document.head.appendChild(cl); }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
+    applyYelp(c);
     if (c.hero_image && String(c.hero_image).trim()){
       var hero = document.getElementById('top'), url = 'url("' + img(c.hero_image).replace(/"/g, '') + '")';
       hero.querySelector('.hero-bg-blur').style.backgroundImage = url;
@@ -789,6 +840,23 @@
     }).join('');
     document.getElementById('gallery').hidden = false;
   }
+  function applyYelp(c){
+    if (!c) return false;
+    var url = c.yelp_url && /^https:\/\/(www\.)?yelp\.com\//.test(c.yelp_url) ? c.yelp_url : 'https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2';
+    var rating = parseFloat(c.yelp_rating), count = parseInt(c.yelp_review_count, 10);
+    var ids = (Array.isArray(c.yelp_review_ids) ? c.yelp_review_ids : String(c.yelp_review_ids || '').split(/[\s,]+/)).map(function(x){ return typeof x === 'string' ? x : (x && x.id) || ''; }).map(function(x){ return x.trim(); }).filter(function(x){ return /^[A-Za-z0-9_-]{10,40}$/.test(x); });
+    var show = (rating > 0) || ids.length;
+    if (!show) return false;
+    document.getElementById('yelpCard').href = url;
+    if (rating > 0){ var full = Math.round(rating); document.getElementById('yelpStars').textContent = '\u2605'.repeat(Math.min(5, full)) + '\u2606'.repeat(Math.max(0, 5 - full)); document.getElementById('yelpRating').textContent = rating.toFixed(1) + ' out of 5'; document.getElementById('yelpCount').textContent = count > 0 ? count + ' review' + (count === 1 ? '' : 's') + ' on Yelp' : 'Rated on Yelp'; }
+    if (ids.length){
+      document.getElementById('yelpEmbeds').innerHTML = ids.slice(0, 3).map(function(id){ return '<span class="yelp-review" data-review-id="' + esc(id) + '" data-hostname="www.yelp.com">Read our <a href="' + esc(url) + '" rel="nofollow noopener" target="_blank">reviews on Yelp</a></span>'; }).join('');
+      var y = document.createElement('script'); y.async = true; y.src = 'https://www.yelp.com/embed/widgets.js'; document.body.appendChild(y);
+    }
+    document.getElementById('yelpWrap').hidden = false;
+    document.getElementById('reviews').hidden = false;
+    return true;
+  }
   function applyReviews(t){
     var items = (t && t.items || []).filter(function(i){ return i && i.quote; });
     if (!items.length) return;
@@ -812,7 +880,7 @@
     document.head.appendChild(ld);
   }
   getJSON('content/faq.json').then(applyFaq).catch(function(){});
-  window.__applyContent = { settings: applySettings, gallery: applyGallery, reviews: applyReviews, faq: applyFaq };
+  window.__applyContent = { settings: applySettings, gallery: applyGallery, reviews: applyReviews, faq: applyFaq, yelp: applyYelp };
 
   var form = document.getElementById('estimateForm'), msg = document.getElementById('formMsg');
   function show(text){ msg.textContent = text; msg.classList.add('show'); msg.scrollIntoView({block:'nearest'}); }
