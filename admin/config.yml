@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded photos are stored in the repo, and the URL they are served from
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "https://www.macautoandcollision.com"
+display_url: "https://www.macautoandcollision.com"
+logo_url: "/admin/logo.svg"
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "settings"
+        label: "Contact, Hours & About"
+        file: "content/settings.json"
+        fields:
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email (estimate requests go here)", name: "email", widget: "string" }
+          - { label: "Announcement banner (leave blank to hide)", name: "announcement", widget: "string", required: false, hint: "Example: Closed Friday July 4th. Reopening Monday." }
+          - label: "Hours"
+            name: "hours"
+            widget: "object"
+            fields:
+              - { label: "Weekday open", name: "weekday_open", widget: "string", default: "8:00 AM" }
+              - { label: "Weekday close", name: "weekday_close", widget: "string", default: "5:00 PM" }
+              - { label: "Saturday & Sunday", name: "weekend", widget: "string", default: "Closed" }
+          - { label: "About the shop", name: "about", widget: "text", hint: "Leave a blank line between paragraphs." }
+
+      - name: "gallery"
+        label: "Photo Gallery"
+        file: "content/gallery.json"
+        fields:
+          - { label: "Intro line", name: "intro", widget: "string", required: false }
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: ["Before & After", "Our Work", "The Shop"], default: "Our Work" }
+              - { label: "Photo (for Our Work / The Shop)", name: "image", widget: "image", required: false }
+              - { label: "Before photo", name: "before", widget: "image", required: false }
+              - { label: "After photo", name: "after", widget: "image", required: false }
+              - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Example: 2019 Silverado, driver-side collision repair and paint" }
+
+      - name: "testimonials"
+        label: "Customer Reviews"
+        file: "content/testimonials.json"
+        fields:
+          - label: "Reviews"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Customer name", name: "name", widget: "string", hint: "First name and last initial is fine" }
+              - { label: "Review", name: "quote", widget: "text" }
+              - { label: "Vehicle or job (optional)", name: "job", widget: "string", required: false }
