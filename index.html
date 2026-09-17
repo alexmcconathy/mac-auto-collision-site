@@ -859,16 +859,17 @@
       document.getElementById('aboutText').innerHTML = c.about.trim().split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p).replace(/\n/g,'<br>') + '</p>'; }).join('');
     }
   }
+  window.pruneGallery = function(){ if (!document.querySelectorAll('#galleryGrid .shot').length) document.getElementById('gallery').hidden = true; };
   function applyGallery(g){
     var items = (g && g.items || []).filter(function(i){ return i && (i.image || (i.before && i.after)); });
     var photos = (g && g.photos || []).map(function(p){ return typeof p === 'string' ? p : (p && (p.image || p.src)) || ''; }).filter(Boolean);
     if (!items.length && !photos.length) return;
     if (g.intro) document.getElementById('galleryIntro').textContent = g.intro;
-    var quick = photos.map(function(p, n){ return '<figure class="shot shot-plain"><img src="' + esc(img(p)) + '" alt="Mac Auto &amp; Collision work photo ' + (n + 1) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"></figure>'; }).join('');
+    var quick = photos.map(function(p, n){ return '<figure class="shot shot-plain"><img src="' + esc(img(p)) + '" alt="Mac Auto &amp; Collision work photo ' + (n + 1) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();if(window.pruneGallery)pruneGallery();"></figure>'; }).join('');
     document.getElementById('galleryGrid').innerHTML = quick + items.map(function(i){
       var media = (i.before && i.after)
-        ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"><em class="after">After</em></div></div>'
-        : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();">';
+        ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();if(window.pruneGallery)pruneGallery();"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();if(window.pruneGallery)pruneGallery();"><em class="after">After</em></div></div>'
+        : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();if(window.pruneGallery)pruneGallery();">';
       return '<figure class="shot">' + media + '<figcaption><b>' + esc(i.title) + '</b>' + (i.caption ? '<span>' + esc(i.caption) + '</span>' : '') + '</figcaption></figure>';
     }).join('');
     document.getElementById('gallery').hidden = false;
