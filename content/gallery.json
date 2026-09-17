@@ -1,6 +1,12 @@
 {
   "intro": "Real repairs from our shop in Bessemer.",
-  "photos": [],
+  "photos": [
+    "/images/uploads/Blue Black Car.jpg",
+    "/images/uploads/Red and Silver Car.jpg",
+    "/images/uploads/Red Corvette Side.jpg",
+    "/images/uploads/Red Corvette.jpg",
+    "/images/uploads/Red Side Profile.jpg"
+  ],
   "items": [
     {
       "title": "Black Ford",
