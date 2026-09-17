@@ -42,7 +42,7 @@ Go to https://www.macautoandcollision.com/admin/
 
 **First time, each editor:**
 1. Needs a free GitHub account, added as a collaborator on the repo: github.com → repo → Settings → Collaborators → Add people (or ask Alex).
-2. On the admin page click **Sign in with Token**, follow the link to create a GitHub personal access token (fine-grained, repository `mac-auto-collision-site`, permission *Contents: Read and write*), paste it in. The browser remembers it.
+2. On the admin page click **Sign In Using Access Token**, follow the link to create a GitHub personal access token (fine-grained, repository `mac-auto-collision-site`, permission *Contents: Read and write*), paste it in. The browser remembers it.
 
 **Then:**
 - **Photo Gallery** → *Photos* → *Add* → choose "Before & After" and upload both photos, or "Our Work" / "The Shop" and upload one. Add a caption like "2019 Silverado, driver-side collision repair". Click **Save**. The site updates within a couple of minutes.

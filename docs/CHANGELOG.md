@@ -2,6 +2,11 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.5.1 — 2026-09-17 — Admin sign-in fix
+- The admin page showed a "Sign In with GitHub" button that dead-ended on a Netlify "Not Found" page (that method needs an authenticator service this site does not use). The page now shows only **Sign In Using Access Token**. A test guards it.
+
+**How to test:** open /admin/; there is a single sign-in button, "Sign In Using Access Token".
+
 ## 1.5.0 — 2026-09-17 — Phase 4: operations
 - GitHub Actions workflow runs `npm test` on every push and pull request. A red X on the repo's Actions tab is the early warning that an admin save produced a broken content file.
 - README: FAQ / hero photo / review link / service areas editing notes, CI note, yearly September checklist.

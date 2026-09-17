@@ -2,6 +2,8 @@ backend:
   name: github
   repo: alexmcconathy/mac-auto-collision-site
   branch: main
+  # Token sign-in only. The OAuth button needs a Netlify/Cloudflare authenticator this site does not have.
+  auth_methods: [token]
 
 # Where uploaded photos are stored in the repo, and the URL they are served from
 media_folder: "images/uploads"
