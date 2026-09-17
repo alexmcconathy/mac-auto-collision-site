@@ -125,6 +125,9 @@
     radial-gradient(600px 400px at 10% 90%,rgba(255,255,255,.06),transparent 60%);
   }
   .hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 22px);pointer-events:none}
+  .hero.has-photo{background-size:cover;background-position:center}
+  .hero.has-photo::before{background:linear-gradient(90deg,rgba(20,24,29,.92) 0%,rgba(20,24,29,.78) 55%,rgba(20,24,29,.6) 100%)}
+  .hero.has-photo::after{display:none}
   .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
   .hero .eyebrow{color:#ffb39a}
   .hero h1 span{color:var(--brand)}
@@ -321,6 +324,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We work with all insurance companies.</b> Bring us the claim number and we take it from there.</div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Free, no-pressure estimates.</b> Stop by the shop or send us photos to get started.</div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Towing help.</b> Can't drive it? Call us and we'll help get your vehicle to the shop.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Easy to find.</b> 8716 Circle Dr, Bessemer. <a href="https://www.google.com/maps/dir/?api=1&destination=8716+Circle+Dr,+Bessemer,+AL+35022" target="_blank" rel="noopener" style="color:#fff">Get directions</a>.</div></li>
       </ul>
     </div>
   </div>
@@ -430,6 +434,7 @@
       <div class="review-links">
         <a class="btn btn-dark" href="https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2" target="_blank" rel="noopener">Read our reviews on Yelp</a>
         <a class="btn btn-ghost" style="color:var(--ink);border-color:var(--line)" href="https://www.bbb.org/us/al/bessemer/profile/auto-body-repair-and-painting/mac-auto-collision-0463-54000644" target="_blank" rel="noopener">BBB profile</a>
+        <a class="btn btn-primary js-google-review" hidden href="#" target="_blank" rel="noopener">Review us on Google</a>
       </div>
     </div>
   </div>
@@ -453,6 +458,7 @@
       <h2>What our customers say</h2>
     </div>
     <div class="grid grid-3" id="reviewGrid"></div>
+    <p style="margin-top:1.5rem"><a class="btn btn-primary js-google-review" hidden href="#" target="_blank" rel="noopener">Leave us a review on Google</a></p>
   </div>
 </section>
 
@@ -493,6 +499,12 @@
         <option>No, paying out of pocket</option>
         <option>Not sure yet</option>
       </select>
+      <label for="besttime">Best time to call you</label>
+      <select id="besttime" name="besttime">
+        <option>Anytime during business hours</option>
+        <option>Morning (8 to 12)</option>
+        <option>Afternoon (12 to 5)</option>
+      </select>
       <label for="details">What happened?</label>
       <textarea id="details" name="details" placeholder="Describe the damage and where it is on the vehicle. Let us know if the vehicle is drivable."></textarea>
       <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Request My Free Estimate</button>
@@ -507,7 +519,7 @@
     <div class="section-head">
       <span class="eyebrow">Visit the shop</span>
       <h2>Find us in Bessemer</h2>
-      <p class="lede">We've moved. Find us at our new location on Circle Drive in Bessemer, easy to reach from Hueytown, McCalla and Helena.</p>
+      <p class="lede">We've moved. Find us at our new location on Circle Drive in Bessemer. Customers come to us from <span class="js-service-areas">Bessemer, Hueytown, McCalla, Helena, Hoover and the greater Birmingham area</span>.</p>
     </div>
     <div class="contact-grid">
       <ul class="contact-list">
@@ -539,7 +551,7 @@
   <div class="wrap">
     <div>
       <h4>Mac Auto &amp; Collision</h4>
-      <p>Family-owned collision repair, auto body, paint and mechanical service in Bessemer, Alabama. Serving Bessemer, Hueytown, McCalla, Helena, Hoover and the greater Birmingham area.</p>
+      <p>Family-owned collision repair, auto body, paint and mechanical service in Bessemer, Alabama. Serving <span class="js-service-areas">Bessemer, Hueytown, McCalla, Helena, Hoover and the greater Birmingham area</span>.</p>
     </div>
     <div>
       <h4>Services</h4>
@@ -612,6 +624,12 @@
       document.querySelectorAll('.js-hours-weekend').forEach(function(el){ el.textContent = c.hours.weekend || 'Closed'; });
     }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
+    if (c.hero_image && String(c.hero_image).trim()){ var hero = document.getElementById('top'); hero.style.backgroundImage = 'url("' + img(c.hero_image).replace(/"/g, '') + '")'; hero.classList.add('has-photo'); }
+    if (c.google_review_url && /^https?:\/\//.test(c.google_review_url)){ document.querySelectorAll('.js-google-review').forEach(function(a){ a.href = c.google_review_url; a.hidden = false; }); }
+    if (Array.isArray(c.service_areas) && c.service_areas.length){
+      var names = c.service_areas.map(function(x){ return typeof x === 'string' ? x : (x && x.name) || ''; }).filter(Boolean);
+      if (names.length){ var txt = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0]; document.querySelectorAll('.js-service-areas').forEach(function(el){ el.textContent = txt; }); }
+    }
     if (c.about && c.about.trim()){
       document.getElementById('aboutText').innerHTML = c.about.trim().split(/\n\s*\n/).map(function(p){ return '<p>' + esc(p).replace(/\n/g,'<br>') + '</p>'; }).join('');
     }
@@ -661,13 +679,13 @@
     if (missing.length){ form[missing[0]].focus(); show('Please fill in your name, phone and vehicle so we can reach you.'); return; }
     var f = form, lines = [
       'Name: ' + f.name.value, 'Phone: ' + f.phone.value, 'Email: ' + (f.email.value || 'n/a'),
-      'Vehicle: ' + f.vehicle.value, 'Insurance: ' + f.claim.value, '', 'Details:', f.details.value
+      'Vehicle: ' + f.vehicle.value, 'Insurance: ' + f.claim.value, 'Best time to call: ' + f.besttime.value, '', 'Details:', f.details.value
     ];
     var btn = form.querySelector('button[type=submit]');
     if (FORM_ENDPOINT){
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(FORM_ENDPOINT, { method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, details:f.details.value, _subject:'Estimate request: ' + f.vehicle.value }) })
+        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, besttime:f.besttime.value, details:f.details.value, _subject:'Estimate request: ' + f.vehicle.value }) })
       .then(function(r){ if(!r.ok) throw new Error(r.status); form.reset(); show('Thanks, ' + lines[0].slice(6) + '. We got your request and will call you back shortly.'); })
       .catch(function(){ show('Sorry, something went wrong sending the form. Please call us at ' + SHOP_PHONE_DISPLAY + '.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Request My Free Estimate'; });

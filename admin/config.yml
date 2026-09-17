@@ -30,6 +30,9 @@ collections:
               - { label: "Weekday close", name: "weekday_close", widget: "string", default: "5:00 PM" }
               - { label: "Saturday & Sunday", name: "weekend", widget: "string", default: "Closed" }
           - { label: "About the shop", name: "about", widget: "text", hint: "Leave a blank line between paragraphs." }
+          - { label: "Hero photo (wide shot of the shop; leave empty for the plain dark background)", name: "hero_image", widget: "image", required: false }
+          - { label: "Google review link (from Google Business Profile → Ask for reviews; leave empty to hide the button)", name: "google_review_url", widget: "string", required: false }
+          - { label: "Service areas (towns you serve, in order)", name: "service_areas", widget: "list", required: false, default: ["Bessemer", "Hueytown", "McCalla", "Helena", "Hoover", "the greater Birmingham area"] }
 
       - name: "gallery"
         label: "Photo Gallery"
