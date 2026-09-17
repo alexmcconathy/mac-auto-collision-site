@@ -14,7 +14,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -565,6 +564,7 @@
 
   // ---- Content editable from /admin (Decap CMS) lives in content/*.json ----
   function esc(t){ return String(t == null ? '' : t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function img(p){ return String(p || '').replace(/^\//, ''); }
   function getJSON(u){ return fetch(u, {cache:'no-cache'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); }); }
   function applySettings(c){
     if (!c) return;
@@ -592,8 +592,8 @@
     if (g.intro) document.getElementById('galleryIntro').textContent = g.intro;
     document.getElementById('galleryGrid').innerHTML = items.map(function(i){
       var media = (i.before && i.after)
-        ? '<div class="pair"><div><img src="' + esc(i.before) + '" alt="Before: ' + esc(i.title) + '" loading="lazy"><em>Before</em></div><div><img src="' + esc(i.after) + '" alt="After: ' + esc(i.title) + '" loading="lazy"><em class="after">After</em></div></div>'
-        : '<img src="' + esc(i.image) + '" alt="' + esc(i.title) + '" loading="lazy">';
+        ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy"><em class="after">After</em></div></div>'
+        : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy">';
       return '<figure class="shot">' + media + '<figcaption><b>' + esc(i.title) + '</b>' + (i.caption ? '<span>' + esc(i.caption) + '</span>' : '') + '</figcaption></figure>';
     }).join('');
     document.getElementById('gallery').hidden = false;
@@ -610,11 +610,6 @@
   getJSON('content/gallery.json').then(applyGallery).catch(function(){});
   getJSON('content/testimonials.json').then(applyReviews).catch(function(){});
   window.__applyContent = { settings: applySettings, gallery: applyGallery, reviews: applyReviews };
-
-  // Netlify Identity: send an invited/logged-in editor to the admin screen
-  window.addEventListener('load', function(){
-    if (window.netlifyIdentity) window.netlifyIdentity.on('init', function(user){ if (!user) window.netlifyIdentity.on('login', function(){ document.location.href = '/admin/'; }); });
-  });
 
   var form = document.getElementById('estimateForm'), msg = document.getElementById('formMsg');
   function show(text){ msg.textContent = text; msg.classList.add('show'); msg.scrollIntoView({block:'nearest'}); }

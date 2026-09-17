@@ -1,14 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: alexmcconathy/mac-auto-collision-site
   branch: main
 
 # Where uploaded photos are stored in the repo, and the URL they are served from
 media_folder: "images/uploads"
-public_folder: "/images/uploads"
+public_folder: "images/uploads"
 
 site_url: "https://www.macautoandcollision.com"
 display_url: "https://www.macautoandcollision.com"
-logo_url: "/admin/logo.svg"
+logo_url: "logo.svg"
 
 collections:
   - name: "site"
