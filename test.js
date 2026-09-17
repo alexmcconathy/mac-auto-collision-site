@@ -76,7 +76,7 @@ const cfg = read('admin/config.yml');
 check(cfg.includes('name: github') && cfg.includes('repo: ' + SHOP.repo), 'admin/config.yml points at ' + SHOP.repo);
 check(cfg.includes('file: "content/settings.json"') && cfg.includes('file: "content/gallery.json"') && cfg.includes('file: "content/testimonials.json"'), 'admin edits the three content files');
 check(!cfg.includes('git-gateway'), 'admin does not use deprecated git-gateway');
-check(/auth_methods:s*[s*tokens*]/.test(cfg), 'admin shows token sign-in only (OAuth button would dead-end without an authenticator)');
+check(/auth_methods:\s*\[\s*token\s*\]/.test(cfg), 'admin shows token sign-in only (OAuth button would dead-end without an authenticator)');
 
 console.log('hosting');
 check(exists('CNAME') && read('CNAME').trim() === SHOP.domain, 'CNAME is ' + SHOP.domain);
