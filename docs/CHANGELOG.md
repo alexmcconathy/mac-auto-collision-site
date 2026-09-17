@@ -2,6 +2,13 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.6.0 — 2026-09-17 — Form delivery, Google review link, one-click login prep
+- Estimate form delivery is now a field in `/admin/` → Contact, Hours & About (*Estimate form delivery address*). Paste a Formspree form URL and the form posts directly and shows a thank-you; leave it empty and the email-app fallback stays. Only Formspree/Basin/Getform/FormSubmit URLs are accepted. Hidden honeypot field against spam bots. Subject line now includes the vehicle and the name; the visitor's email is set as reply-to.
+- Google review link set from the shop's Google listing (place id ChIJj00a7NPgiIgRLxuwtT-dvrw), so the "Review us on Google" buttons are live. The Google Maps listing is added to the structured data.
+- One-click login: `docs/ONE_CLICK_LOGIN.md` step-by-step; `admin/config.yml` carries the two lines as comments; the site test accepts either token-only or authenticator setups.
+
+**How to test:** "Review us on Google" button in the About section opens Google's review box for the shop. Admin → Contact, Hours & About shows the *Estimate form delivery address* field. With a Formspree URL saved, submitting the form shows "Thanks, … We got your request".
+
 ## 1.5.1 — 2026-09-17 — Admin sign-in fix
 - The admin page showed a "Sign In with GitHub" button that dead-ended on a Netlify "Not Found" page (that method needs an authenticator service this site does not use). The page now shows only **Sign In Using Access Token**. A test guards it.
 

@@ -4,6 +4,9 @@ backend:
   branch: main
   # Token sign-in only. The OAuth button needs a Netlify/Cloudflare authenticator this site does not have.
   auth_methods: [token]
+  # One-click login (see docs/ONE_CLICK_LOGIN.md): after deploying the authenticator, replace the line above with:
+  #   base_url: https://sveltia-cms-auth.<your-subdomain>.workers.dev
+  #   auth_methods: [oauth, token]
 
 # Where uploaded photos are stored in the repo, and the URL they are served from
 media_folder: "images/uploads"
@@ -23,6 +26,7 @@ collections:
         fields:
           - { label: "Phone", name: "phone", widget: "string" }
           - { label: "Email (estimate requests go here)", name: "email", widget: "string" }
+          - { label: "Estimate form delivery address (Formspree form URL, e.g. https://formspree.io/f/abcdwxyz; leave empty and the form uses the visitor's email app)", name: "form_endpoint", widget: "string", required: false, pattern: ["^$|^https://(formspree\\.io|usebasin\\.com|getform\\.io|formsubmit\\.co)/.+", "Must be a Formspree (or Basin/Getform/FormSubmit) form URL starting with https://"] }
           - { label: "Announcement banner (leave blank to hide)", name: "announcement", widget: "string", required: false, hint: "Example: Closed Friday July 4th. Reopening Monday." }
           - label: "Hours"
             name: "hours"

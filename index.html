@@ -32,7 +32,7 @@
   "@type": "AutoBodyShop",
   "name": "Mac Auto & Collision",
   "image": "https://www.macautoandcollision.com/social-card.png",
-  "sameAs": ["https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2", "https://www.bbb.org/us/al/bessemer/profile/auto-body-repair-and-painting/mac-auto-collision-0463-54000644"],
+  "sameAs": ["https://maps.google.com/?cid=13600480821662194479", "https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2", "https://www.bbb.org/us/al/bessemer/profile/auto-body-repair-and-painting/mac-auto-collision-0463-54000644"],
   "telephone": "+1-205-746-1847",
   "address": {
     "@type": "PostalAddress",
@@ -218,7 +218,7 @@
   .faq details p{color:var(--ink-2);margin:0 0 1.1rem}
 
   /* estimate form */
-  .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+  .form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
   @media (max-width:560px){.form-row{grid-template-columns:1fr}}
   label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
@@ -525,6 +525,7 @@
       </select>
       <label for="details">What happened?</label>
       <textarea id="details" name="details" placeholder="Describe the damage and where it is on the vehicle. Let us know if the vehicle is drivable."></textarea>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label for="website_url">Leave this empty</label><input id="website_url" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Request My Free Estimate</button>
       <p class="form-note">We only use your information to respond to your estimate request.</p>
       <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
@@ -605,7 +606,8 @@
 
 <script>
   // ---- Configure once the shop has a form endpoint or email ----
-  // Option A: a form service endpoint (Formspree, Basin, Netlify Forms, etc.). Leave "" to disable.
+  // Option A: a form service endpoint (Formspree, Basin, etc.). Normally set from /admin ("Estimate form delivery address")
+  // via content/settings.json → form_endpoint. Leave "" here to disable.
   var FORM_ENDPOINT = "";
   // Option B: the shop's email. Used to open the visitor's mail app with the request pre-filled.
   var SHOP_EMAIL = "macautocollision@earthlink.net";
@@ -629,6 +631,7 @@
   function applySettings(c){
     if (!c) return;
     if (c.email) SHOP_EMAIL = c.email;
+    if (c.form_endpoint && /^https:\/\/(formspree\.io|usebasin\.com|getform\.io|formsubmit\.co)\//.test(String(c.form_endpoint).trim())) FORM_ENDPOINT = String(c.form_endpoint).trim();
     if (c.phone && c.phone !== SHOP_PHONE_DISPLAY){
       var digits = c.phone.replace(/\D/g,''), href = 'tel:+1' + digits.slice(-10);
       document.querySelectorAll('a[href^="tel:"]').forEach(function(a){ a.href = href; });
@@ -703,8 +706,8 @@
     if (FORM_ENDPOINT){
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(FORM_ENDPOINT, { method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, besttime:f.besttime.value, details:f.details.value, _subject:'Estimate request: ' + f.vehicle.value }) })
-      .then(function(r){ if(!r.ok) throw new Error(r.status); form.reset(); show('Thanks, ' + lines[0].slice(6) + '. We got your request and will call you back shortly.'); })
+        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, besttime:f.besttime.value, details:f.details.value, _gotcha:f._gotcha.value, _subject:'Estimate request: ' + f.vehicle.value + ' (' + f.name.value + ')', _replyto:f.email.value }) })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); var who = f.name.value.trim(); form.reset(); show('Thanks, ' + who + '. We got your request and will call you back shortly, usually the same business day.'); })
       .catch(function(){ show('Sorry, something went wrong sending the form. Please call us at ' + SHOP_PHONE_DISPLAY + '.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Request My Free Estimate'; });
     } else if (SHOP_EMAIL){

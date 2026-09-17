@@ -60,7 +60,12 @@ Every save is a commit in the GitHub repo, so nothing is ever lost and any chang
 Optional upgrade later: one-click "Sign in with GitHub" instead of a token, by deploying the free [Sveltia CMS Authenticator](https://github.com/sveltia/sveltia-cms-auth) on Cloudflare Workers and adding its URL as `base_url` under `backend` in `admin/config.yml`.
 
 ## Estimate form
-The form opens the visitor's email app with the request pre-filled, addressed to the email in *Contact, Hours & About* (currently macautocollision@earthlink.net). If you want requests delivered without relying on the visitor's email app, sign up for a form service (Formspree, free tier is enough) and paste its endpoint URL into `FORM_ENDPOINT` near the bottom of `index.html`. The form then posts directly and shows a thank-you message.
+Two delivery modes, chosen by the *Estimate form delivery address* field in `/admin/` → Contact, Hours & About:
+- **Empty (default):** the form opens the visitor's email app with the request pre-filled, addressed to the shop email. Works with no account, but depends on the visitor having email set up.
+- **Formspree URL filled in:** the form posts straight to Formspree, which emails the request to the shop and shows the visitor a thank-you. Free tier is 50 submissions a month, plenty for a body shop. Setup is in `docs/OWNER_ACTION_ITEMS.md` (item 10). A hidden honeypot field drops spam bots.
+
+## One-click admin login
+Optional. Replaces the token paste with a "Sign in with GitHub" button, using the free Sveltia authenticator on Cloudflare Workers. Step-by-step in `docs/ONE_CLICK_LOGIN.md`; the config lines are already in `admin/config.yml` as comments.
 
 ## Domain notes (checked against the registries on 2026-09-16)
 Taken:

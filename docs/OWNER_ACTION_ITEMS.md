@@ -24,14 +24,14 @@ Website: https://www.macautoandcollision.com · Admin page: https://www.macautoa
 - [ ] Test: type macautoandcollision.net in a browser; it should land on the real site within an hour.
 
 ## 4. Google Business Profile (the most important marketing task, 30 minutes plus a verification wait)
-This is the listing that shows on Google Maps and in the box on the right when someone searches the shop name. It currently shows the OLD address and phone.
+This is the listing that shows on Google Maps and in the box on the right when someone searches the shop name. Good news: it already shows the right address and phone, 4.4 stars from 18 reviews, and opens at 8 AM. But it says **"Own this business?"**, meaning nobody has claimed it, and it lists **no website**.
+- [x] Review link: already done. The site's "Review us on Google" buttons point at this listing.
 - [ ] Go to https://business.google.com and sign in with a Google account the shop controls (create one at accounts.google.com if needed; write it in the password book).
-- [ ] Search for "Mac Auto & Collision Bessemer". If it says the listing exists, click **Claim** or **Request access**. If it doesn't exist, click **Add your business**.
-- [ ] Enter: name `Mac Auto & Collision`, category `Auto body shop` (add `Auto repair shop` as a second category), address `8716 Circle Dr, Bessemer, AL 35022`, phone `(205) 746-1847`, website `https://www.macautoandcollision.com`, hours Mon–Fri 8:00 AM–5:00 PM.
+- [ ] Search for "Mac Auto & Collision Inc Bessemer" and click **Claim this business** / **Manage now**.
 - [ ] Complete verification. Google usually offers a phone call, a text, a short video walkthrough of the shop, or a postcard (takes about a week). Follow the prompts.
-- [ ] Once verified: upload 5 to 10 photos (storefront, sign, bays, a finished car), add the services list, and write a two-sentence description (copy the About text from the website).
-- [ ] Get the review link: in the profile click **Ask for reviews** (or "Get more reviews"), copy the short link.
-- [ ] Admin page → **Contact, Hours & About** → paste it into *Google review link* → **Save**. The "Review us on Google" buttons appear on the site.
+- [ ] Once verified: add the website `https://www.macautoandcollision.com`, set category `Auto body shop` (add `Auto repair shop` as a second category), confirm hours Mon–Fri 8:00 AM–5:00 PM, and set the shop name to `Mac Auto & Collision` (drop the "Inc" if you prefer).
+- [ ] Upload 5 to 10 photos (storefront, sign, bays, a finished car), add the services list, and refresh the description (it still mentions "Mac Snap On-Site Estimating"; copy the About text from the website if that program is no longer offered).
+- [ ] Reply to a few of the existing reviews with a short thank-you. Google ranks responsive businesses higher.
 - [ ] Check the map pin lands on the shop. If not, drag it in the profile's Location section.
 
 ## 5. Fix the other directories (20 minutes total, all still show Brooklane Dr and the old number)
@@ -61,9 +61,19 @@ For each one: search the site for "Mac Auto & Collision Bessemer", open the list
 ## 9. Retire the "We have moved" banner (when ready, about six months after the move)
 - [ ] Admin page → **Contact, Hours & About** → clear the *Announcement banner* box → **Save**. Use the same box later for holiday closures.
 
-## 10. Optional upgrades (ask Alex)
-- [ ] **Estimate form delivery**: today the form opens the visitor's own email app. A free Formspree account makes it send directly and show a thank-you. Alex pastes one line into the site.
-- [ ] **One-click admin login** instead of the token: a free Cloudflare Worker. Only worth it if several people will edit.
+## 10. Estimate form delivery through Formspree (10 minutes, no code)
+Today the form opens the visitor's own email app. With Formspree the request is emailed to the shop directly and the visitor sees a thank-you. Free plan: 50 requests a month.
+- [ ] Go to https://formspree.io and click **Get Started** / **Sign up**. Use the shop email (macautocollision@earthlink.net) and a password; write it in the password book. Confirm the email Formspree sends.
+- [ ] Click **+ New form**. Name: `Estimate requests`. Send emails to: `macautocollision@earthlink.net`. Create.
+- [ ] Formspree shows the form's endpoint, a link like `https://formspree.io/f/abcdwxyz`. Copy it.
+- [ ] Open the website admin page → **Contact, Hours & About** → paste it into **Estimate form delivery address** → **Save**.
+- [ ] Two minutes later, fill in the estimate form on the website with your own details and click **Request My Free Estimate**. You should see "Thanks, ... We got your request", and the email should arrive at the shop address within a minute (check spam the first time and mark it "not spam").
+- [ ] In Formspree, open the form → **Settings** and make sure **Restrict to domain** lists `macautoandcollision.com` so nobody else can use the form address.
+
+## 11. One-click admin login (optional, 20 minutes, only if several people will edit)
+- [ ] Follow `docs/ONE_CLICK_LOGIN.md` in the website folder (or ask Alex). It is a free Cloudflare account plus a GitHub "OAuth App"; no monthly cost. After it, editors click **Sign in with GitHub** instead of pasting a token.
+
+## 12. Later ideas (ask Alex)
 - [ ] **Spanish page**, **online drop-off request**, **insurance partner logos**: see `docs/ROADMAP.md` Phase 6.
 
 ## Every September (domain renews 17 Sept)
