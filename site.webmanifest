@@ -3,8 +3,8 @@
   "short_name": "Mac Auto",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#14181d",
-  "theme_color": "#14181d",
+  "background_color": "#141414",
+  "theme_color": "#141414",
   "icons": [
     {
       "src": "apple-touch-icon.png",

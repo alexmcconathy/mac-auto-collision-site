@@ -2,6 +2,14 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.7.0 — 2026-09-17 — New look: Garage Red palette, Workshop layout
+- Colors: black page (#141414), graphite cards (#1B1B1B), red accent (#D7261E), silver text. Chosen by the shop from five mockups.
+- Layout unchanged: headline left, accident checklist right, same sections. The *Hero photo* from the admin page now shows as a faded full-width picture behind the headline, darkest on the left so the text stays readable.
+- Icons, favicon, social preview card and the 404 page re-colored to match. All text/background pairs checked at 5:1 or better.
+- Hero photo defaults to the Black Ford until a storefront shot is uploaded.
+
+**How to test:** open the site; dark page, red buttons, the shop photo faded behind the headline with the checklist card on the right. Shrink to phone width: nothing runs off the right edge. Share the link in a text message: the preview card is black and red.
+
 ## 1.6.1 — 2026-09-17 — Header overlap fix, quick photo upload
 - Header: between about 900 and 1140 px wide (small laptop windows) the seven menu links, the phone button and the logo no longer fit, so the logo wrapped onto three lines and overlapped the bar above. The menu now collapses to the ☰ button below 1140 px and the logo never wraps. Checked at 340, 950, 1140, 1141 and 1280 px.
 - Gallery: new **Quick photos** field in `/admin/` → Photo Gallery. Select or drag in many photos at once; they appear in the gallery as plain photos. The structured list stays for captions and Before & After pairs.
