@@ -48,6 +48,18 @@ collections:
               - { label: "After photo", name: "after", widget: "image", required: false }
               - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Example: 2019 Silverado, driver-side collision repair and paint" }
 
+      - name: "faq"
+        label: "FAQ (questions & answers)"
+        file: "content/faq.json"
+        fields:
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
       - name: "testimonials"
         label: "Customer Reviews"
         file: "content/testimonials.json"

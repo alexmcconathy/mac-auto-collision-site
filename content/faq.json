@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "question": "Can I choose my own body shop, or do I have to use the one my insurance company suggests?",
+      "answer": "You choose. In Alabama the vehicle owner decides where the repair is done. Your insurance company can recommend a shop, but it cannot require one. Tell the adjuster you are using Mac Auto & Collision and we take it from there."
+    },
+    {
+      "question": "Do I need more than one estimate?",
+      "answer": "No. One estimate from us is all the claim needs. We write it, send it to your insurance company and handle any follow-up questions from the adjuster."
+    },
+    {
+      "question": "Do you work with my insurance company?",
+      "answer": "Yes. We work with every carrier, including State Farm, Allstate, Progressive, GEICO, USAA and Alfa. Bring your claim number if you have one; if you have not filed yet, we can walk you through it."
+    },
+    {
+      "question": "How long will the repair take?",
+      "answer": "It depends on the damage and on parts. Small repairs are often two to three days. Major collision work can take one to three weeks. We give you a time estimate up front and call you if anything changes."
+    },
+    {
+      "question": "My car can't be driven. Can you help get it to the shop?",
+      "answer": "Yes. Call us at (205) 746-1847 and we will help arrange towing to the shop."
+    },
+    {
+      "question": "What if I'm paying out of pocket instead of using insurance?",
+      "answer": "That is fine. We give you an honest written price and repair options that fit your budget, with no claim involved."
+    },
+    {
+      "question": "Will the new paint match the rest of my car?",
+      "answer": "Yes. We match the factory color code and blend the new finish into the surrounding panels so the repair is not visible."
+    },
+    {
+      "question": "Do you do mechanical work too?",
+      "answer": "Yes. Oil changes, front-end alignments and the mechanical repairs that often come with a collision, such as suspension, steering and cooling components, are done in-house."
+    },
+    {
+      "question": "What should I bring to the estimate?",
+      "answer": "Your driver's license, your insurance card, your claim number if you have one, and the vehicle. If the vehicle cannot be driven, photos of the damage are enough to get started."
+    }
+  ]
+}
