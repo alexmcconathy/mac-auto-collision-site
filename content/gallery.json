@@ -5,16 +5,8 @@
     "/images/uploads/Red and Silver Car.jpg",
     "/images/uploads/Red Corvette Side.jpg",
     "/images/uploads/Red Corvette.jpg",
-    "/images/uploads/Red Side Profile.jpg"
+    "/images/uploads/Red Side Profile.jpg",
+    "/images/uploads/Black Ford.jpg"
   ],
-  "items": [
-    {
-      "title": "Black Ford",
-      "type": "Our Work",
-      "image": "/images/uploads/Black Ford.jpg",
-      "before": "",
-      "after": "",
-      "caption": ""
-    }
-  ]
+  "items": []
 }
