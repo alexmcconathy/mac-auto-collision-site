@@ -20,6 +20,9 @@
 <meta name="twitter:description" content="Family-owned collision repair and auto body shop in Bessemer, Alabama. Free estimates. Call (205) 746-1847.">
 <meta name="twitter:image" content="https://www.macautoandcollision.com/social-card.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,7 +57,7 @@
 <style>
   :root{
     --bg:#ffffff; --bg-alt:#f4f5f7; --ink:#14181d; --ink-2:#4a5260; --line:#e2e5ea;
-    --brand:#e8542a; --brand-dark:#c8431c; --navy:#14181d; --navy-2:#1f252d;
+    --brand:#e8542a; --brand-dark:#c8431c; --brand-deep:#b83a14; --navy:#14181d; --navy-2:#1f252d;
     --on-dark:#f5f6f8; --on-dark-2:#b7bec9; --max:1180px; --radius:14px;
     --shadow:0 10px 30px rgba(20,24,29,.08);
   }
@@ -69,12 +72,12 @@
   a{color:inherit}
   img{max-width:100%;display:block}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-  .eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:.75rem}
+  .eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:.75rem}
   .lede{font-size:1.15rem;color:var(--ink-2);max-width:60ch}
   .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s,color .15s;white-space:nowrap;cursor:pointer;font-size:1rem;font-family:inherit}
   .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--brand);color:#fff}
-  .btn-primary:hover{background:var(--brand-dark)}
+  .btn-primary{background:var(--brand-dark);color:#fff}
+  .btn-primary:hover{background:var(--brand-deep)}
   .btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.35)}
   .btn-ghost:hover{border-color:#fff}
   .btn-dark{background:var(--navy);color:#fff}
@@ -126,7 +129,7 @@
   }
   .hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 22px);pointer-events:none}
   .hero.has-photo{background-size:cover;background-position:center}
-  .hero.has-photo::before{background:linear-gradient(90deg,rgba(20,24,29,.92) 0%,rgba(20,24,29,.78) 55%,rgba(20,24,29,.6) 100%)}
+  .hero.has-photo::before{background:linear-gradient(90deg,rgba(20,24,29,.94) 0%,rgba(20,24,29,.86) 55%,rgba(20,24,29,.72) 100%)}
   .hero.has-photo::after{display:none}
   .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
   .hero .eyebrow{color:#ffb39a}
@@ -142,7 +145,7 @@
   @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 
   /* trust bar */
-  .trust{background:var(--brand);color:#fff;padding:1rem 0}
+  .trust{background:var(--brand-dark);color:#fff;padding:1rem 0}
   .trust .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem}
   .trust span{display:flex;align-items:center;gap:.5rem}
   .trust svg{width:18px;height:18px}
@@ -184,7 +187,7 @@
   .callout p{color:var(--on-dark-2);margin:0}
 
   /* announcement */
-  .announce{background:#fff1ec;border-bottom:1px solid #ffd2c2;color:var(--brand-dark);font-weight:600;text-align:center;padding:.6rem 0;font-size:.95rem}
+  .announce{background:#fff1ec;border-bottom:1px solid #ffd2c2;color:var(--brand-deep);font-weight:600;text-align:center;padding:.6rem 0;font-size:.95rem}
 
   /* gallery */
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -220,7 +223,7 @@
   @media (max-width:560px){.form-row{grid-template-columns:1fr}}
   label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
   input,select,textarea{width:100%;font:inherit;padding:.8rem .95rem;border:1px solid #cfd4dc;border-radius:10px;background:#fff;color:var(--ink);margin-bottom:1rem}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--brand-dark);outline-offset:1px;border-color:var(--brand-dark)}
   textarea{min-height:120px;resize:vertical}
   .form-note{font-size:.88rem;color:var(--ink-2);margin-top:.75rem}
   .form-msg{display:none;margin-top:1rem;padding:1rem;border-radius:10px;background:#fff1ec;border:1px solid #ffd2c2;font-weight:500}
@@ -238,7 +241,7 @@
   .contact-list .icon svg{width:22px;height:22px}
   .contact-list b{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.15rem}
   .contact-list a{text-decoration:none;font-weight:600}
-  .contact-list a:hover{color:var(--brand)}
+  .contact-list a:hover{color:var(--brand-dark)}
   .hours-table{border-collapse:collapse;font-size:.98rem}
   .hours-table td{padding:.15rem 1.5rem .15rem 0}
   .map{border:0;width:100%;height:100%;min-height:360px;border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -259,7 +262,22 @@
   .callbar .btn{flex:1;justify-content:center;padding:.85rem 1rem}
   @media (max-width:760px){.callbar{display:flex}}
 
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand-dark);outline-offset:3px;border-radius:6px}
+  .hero a:focus-visible,.callbar a:focus-visible,footer a:focus-visible{outline-color:#fff}
+
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  @media print{
+    .topbar,header.nav,.announce,.trust,.callbar,.map,#estimate,#process,#faq,#gallery,#reviews,.hero-actions,.review-links{display:none !important}
+    body{font-size:11pt;color:#000;background:#fff}
+    .hero{background:#fff !important;color:#000;padding:0}
+    .hero::before,.hero::after{display:none}
+    .hero h1,.hero .lede,.hero-card,.hero-card li,.hero-card b,.hero-card h3{color:#000 !important}
+    .hero-card{border:1px solid #999;background:#fff}
+    section{padding:1rem 0;break-inside:avoid}
+    .card,.step,.stat{box-shadow:none;border:1px solid #999;background:#fff;color:#000}
+    .stat .display,.stat p{color:#000}
+    a[href^="http"]::after{content:""}
+  }
 </style>
 </head>
 <body>

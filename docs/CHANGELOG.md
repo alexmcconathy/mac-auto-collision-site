@@ -2,6 +2,16 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.4.0 — 2026-09-17 — Phase 3: accessibility & polish
+- Color contrast: small orange text (section labels), the orange buttons, the trust bar and the announcement now use darker oranges that pass WCAG AA (4.9:1 on white). The bright orange stays for the big headline accent and icons.
+- Visible keyboard focus rings on links, buttons and FAQ items.
+- Print stylesheet: printing the page gives a clean one-pager with the phone, address, services and hours (no nav, form or map).
+- Real icon files: favicon.png, apple-touch-icon.png (home-screen icon on iPhone/Android), icon-512.png and site.webmanifest.
+- Hero photo overlay darkened slightly so headline text stays readable over any shop photo.
+- All text files normalized to Unix line endings.
+
+**How to test:** Tab through the page with the keyboard; every link and button shows an orange outline. Print preview (Ctrl+P) shows a clean page. On a phone, "Add to Home Screen" shows the orange car icon.
+
 ## 1.3.0 — 2026-09-17 — Phase 2: conversion & trust
 - Hero photo slot: set *Hero photo* in `/admin/` → Contact, Hours & About and the top of the site shows the shop behind a dark overlay. Empty = the current dark background.
 - "Review us on Google" buttons (About section and under reviews), hidden until *Google review link* is filled in.
