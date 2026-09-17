@@ -29,29 +29,16 @@ node serve.js
 ```
 then open http://localhost:5199.
 
-## Go live
-Already done: the folder is a git repo, pushed to GitHub at `alexmcconathy/mac-auto-collision-site`, and the admin page is configured to edit that repo.
+## Live
+- Site: https://www.macautoandcollision.com (GitHub Pages, repo public, custom domain attached, certificate issued 2026-09-17)
+- Admin: https://www.macautoandcollision.com/admin/
+- Bare `macautoandcollision.com` redirects to `www`.
+- `macautoandcollision.net` is also owned (Porkbun). Forward it to the .com at Porkbun: domain → Details → URL Forwarding → `https://www.macautoandcollision.com`, type Permanent (301).
 
-Left to do:
-1. **Make the repo public and turn on GitHub Pages** (free plans only serve Pages from public repos; the site has no secrets in it):
-   ```
-   gh repo edit alexmcconathy/mac-auto-collision-site --visibility public --accept-visibility-change-consequences
-   gh api repos/alexmcconathy/mac-auto-collision-site/pages -X POST -f "source[branch]=main" -f "source[path]=/"
-   ```
-   About a minute later the site is live at https://alexmcconathy.github.io/mac-auto-collision-site/
-2. **Buy the domain.** Recommended `macautoandcollision.com`. Cheapest at Cloudflare Registrar (dash.cloudflare.com → Domain Registration) or Porkbun.
-3. **Point the domain at GitHub Pages.** At the registrar's DNS page add:
-   - `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` record for `www` → `alexmcconathy.github.io`
-   (If the DNS is at Cloudflare, set the proxy to "DNS only" for these records.)
-4. **Tell GitHub the domain** (also creates the `CNAME` file in the repo):
-   ```
-   gh api repos/alexmcconathy/mac-auto-collision-site/pages -X PUT -f cname=www.macautoandcollision.com -F https_enforced=true
-   ```
-   The `https_enforced` step can take up to a day while GitHub issues the certificate. Retry it if it errors the first time.
+If the domain ever needs to change: GitHub → repo → Settings → Pages → Custom domain, plus the `canonical`/JSON-LD `url` in `index.html` and `site_url`/`display_url` in `admin/config.yml`. DNS records for GitHub Pages are the four `A` records 185.199.108–111.153 on the bare domain and a `CNAME` `www` → `alexmcconathy.github.io`.
 
 ## Adding photos and editing content (day to day)
-Go to `https://<your-domain>/admin/` (or the github.io address above followed by `admin/`).
+Go to https://www.macautoandcollision.com/admin/
 
 **First time, each editor:**
 1. Needs a free GitHub account, added as a collaborator on the repo: github.com → repo → Settings → Collaborators → Add people (or ask Alex).
