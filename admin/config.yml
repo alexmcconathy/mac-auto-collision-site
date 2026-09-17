@@ -45,9 +45,16 @@ collections:
         file: "content/gallery.json"
         fields:
           - { label: "Intro line", name: "intro", widget: "string", required: false }
-          - label: "Photos"
+          - label: "Quick photos (select or drag in many at once; no captions)"
+            name: "photos"
+            widget: "image"
+            multiple: true
+            required: false
+            hint: "Finished cars, the shop, the crew. Shown in the gallery as plain photos. Use the list below when you want a caption or a before/after pair."
+          - label: "Captioned photos and Before & After pairs"
             name: "items"
             widget: "list"
+            required: false
             summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }

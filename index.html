@@ -97,19 +97,21 @@
 
   /* nav */
   header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:1rem}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:1rem;min-width:0}
+  .nav .wrap > *{min-width:0}
   .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink)}
   .logo-mark{width:44px;height:44px;border-radius:10px;background:var(--navy);display:grid;place-items:center;flex:none}
   .logo-mark svg{width:30px;height:30px}
-  .logo-text{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;line-height:1;text-transform:uppercase}
-  .logo-text small{display:block;font-family:Inter,sans-serif;font-weight:600;font-size:.68rem;letter-spacing:.14em;color:var(--ink-2);text-transform:uppercase;margin-top:3px}
+  .logo-text{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;line-height:1;text-transform:uppercase;white-space:nowrap}
+  .logo-text small{display:block;font-family:Inter,sans-serif;font-weight:600;font-size:.68rem;letter-spacing:.14em;color:var(--ink-2);text-transform:uppercase;margin-top:3px;white-space:nowrap}
+  @media (max-width:380px){.logo-text{font-size:1.25rem}.logo-text small{font-size:.6rem;letter-spacing:.1em}}
   nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.6rem;align-items:center}
   nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-2);white-space:nowrap}
   nav a:hover{color:var(--ink)}
   .nav-cta{display:flex;align-items:center;gap:.75rem}
   .menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;padding:0}
   .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto;transition:transform .2s,opacity .2s}
-  @media (max-width:900px){
+  @media (max-width:1140px){
     nav{position:absolute;left:0;right:0;top:74px;background:#fff;border-bottom:1px solid var(--line);display:none;padding:1rem 20px 1.25rem}
     nav.open{display:block}
     nav ul{flex-direction:column;align-items:stretch;gap:0}
@@ -203,6 +205,7 @@
   .shot .pair div{position:relative}
   .shot .pair em{position:absolute;left:8px;top:8px;background:rgba(20,24,29,.85);color:#fff;font-style:normal;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .5rem;border-radius:6px}
   .shot .pair em.after{background:var(--brand)}
+  .shot-plain img{aspect-ratio:4/3}
   .quote{position:relative}
   .quote::before{content:"\201C";font-family:"Barlow Condensed",serif;font-size:4rem;line-height:1;color:var(--brand);position:absolute;top:.6rem;left:1.2rem;opacity:.6}
   .quote p{padding-top:1.5rem;font-style:italic}
@@ -259,7 +262,7 @@
 
   /* mobile call bar */
   .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:#fff;border-top:1px solid var(--line);padding:.6rem 12px calc(.6rem + env(safe-area-inset-bottom));gap:.6rem}
-  .callbar .btn{flex:1;justify-content:center;padding:.85rem 1rem}
+  .callbar .btn{flex:1;justify-content:center;padding:.85rem .75rem;font-size:.95rem}
   @media (max-width:760px){.callbar{display:flex}}
 
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand-dark);outline-offset:3px;border-radius:6px}
@@ -657,9 +660,11 @@
   }
   function applyGallery(g){
     var items = (g && g.items || []).filter(function(i){ return i && (i.image || (i.before && i.after)); });
-    if (!items.length) return;
+    var photos = (g && g.photos || []).map(function(p){ return typeof p === 'string' ? p : (p && (p.image || p.src)) || ''; }).filter(Boolean);
+    if (!items.length && !photos.length) return;
     if (g.intro) document.getElementById('galleryIntro').textContent = g.intro;
-    document.getElementById('galleryGrid').innerHTML = items.map(function(i){
+    var quick = photos.map(function(p, n){ return '<figure class="shot shot-plain"><img src="' + esc(img(p)) + '" alt="Mac Auto &amp; Collision work photo ' + (n + 1) + '" loading="lazy"></figure>'; }).join('');
+    document.getElementById('galleryGrid').innerHTML = quick + items.map(function(i){
       var media = (i.before && i.after)
         ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy"><em class="after">After</em></div></div>'
         : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy">';

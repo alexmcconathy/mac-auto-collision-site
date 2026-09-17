@@ -47,8 +47,9 @@ For each one: search the site for "Mac Auto & Collision Bessemer", open the list
 ## 6. Photos (an afternoon)
 - [ ] Open `PHOTO_SHOT_LIST.md` (in the website folder or ask Alex) and take the nine must-have shots with a phone, wide/landscape, in good light.
 - [ ] Set the hero photo: admin page → **Contact, Hours & About** → *Hero photo* → upload the storefront shot → **Save**. The top of the site now shows the shop.
-- [ ] Add gallery photos: admin page → **Photo Gallery** → **Photos** → **Add**. For a repair, choose **Before & After** and upload both. Title like "2019 Silverado, driver side", caption like "Collision repair, blend and paint". **Save**.
-- [ ] Repeat for two or three more jobs. The gallery section appears on the site as soon as the first photo is saved.
+- [ ] Add gallery photos the quick way: admin page → **Photo Gallery** → **Quick photos** → pick as many photos as you like in one go (or drag them in) → **Save**. They show as plain photos, no captions needed.
+- [ ] For a repair you want to show off: **Photo Gallery** → **Captioned photos and Before & After pairs** → **Add**. Choose **Before & After** and upload both. Title like "2019 Silverado, driver side", caption like "Collision repair, blend and paint". **Save**.
+- [ ] The gallery section appears on the site as soon as the first photo is saved (the Black Ford is already there).
 
 ## 7. Customer reviews (ongoing)
 - [ ] Ask three to five recent happy customers for a sentence or two (text message is fine). Get their OK to use first name and last initial.

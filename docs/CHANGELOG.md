@@ -2,6 +2,12 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.6.1 — 2026-09-17 — Header overlap fix, quick photo upload
+- Header: between about 900 and 1140 px wide (small laptop windows) the seven menu links, the phone button and the logo no longer fit, so the logo wrapped onto three lines and overlapped the bar above. The menu now collapses to the ☰ button below 1140 px and the logo never wraps. Checked at 340, 950, 1140, 1141 and 1280 px.
+- Gallery: new **Quick photos** field in `/admin/` → Photo Gallery. Select or drag in many photos at once; they appear in the gallery as plain photos. The structured list stays for captions and Before & After pairs.
+
+**How to test:** shrink the browser window slowly from wide to narrow; the menu turns into ☰ before anything overlaps. In `/admin/` → Photo Gallery → Quick photos, pick three photos at once, Save; they appear in the gallery.
+
 ## 1.6.0 — 2026-09-17 — Form delivery, Google review link, one-click login prep
 - Estimate form delivery is now a field in `/admin/` → Contact, Hours & About (*Estimate form delivery address*). Paste a Formspree form URL and the form posts directly and shows a thank-you; leave it empty and the email-app fallback stays. Only Formspree/Basin/Getform/FormSubmit URLs are accepted. Hidden honeypot field against spam bots. Subject line now includes the vehicle and the name; the visitor's email is set as reply-to.
 - Google review link set from the shop's Google listing (place id ChIJj00a7NPgiIgRLxuwtT-dvrw), so the "Review us on Google" buttons are live. The Google Maps listing is added to the structured data.

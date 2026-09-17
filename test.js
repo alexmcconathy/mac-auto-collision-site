@@ -44,6 +44,10 @@ if (gallery) {
     });
   });
 }
+if (gallery && gallery.photos !== undefined) {
+  check(Array.isArray(gallery.photos), 'gallery.photos is a list');
+  (gallery.photos || []).forEach((p, i) => { const src = typeof p === 'string' ? p : (p && p.image) || ''; if (src && !/^(https?:|data:)/.test(src)) check(exists(src.replace(/^\//, '')), 'gallery photo ' + (i + 1) + ' file exists: ' + src); });
+}
 const testimonials = json('content/testimonials.json', ['items']);
 if (testimonials) (testimonials.items || []).forEach((it, i) => check(it.name && it.quote, 'review ' + (i + 1) + ' has name and quote'));
 if (exists('content/faq.json')) {
