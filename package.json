@@ -1,0 +1,11 @@
+{
+  "name": "mac-auto-collision-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mac Auto & Collision website (Bessemer, AL). Static site served by GitHub Pages.",
+  "scripts": {
+    "test": "node test.js",
+    "preview": "node serve.js"
+  },
+  "license": "UNLICENSED"
+}
