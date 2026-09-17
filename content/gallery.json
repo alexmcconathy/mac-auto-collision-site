@@ -1,4 +1,13 @@
 {
   "intro": "Real repairs from our shop in Bessemer.",
-  "items": []
+  "items": [
+    {
+      "title": "Black Ford",
+      "type": "Our Work",
+      "image": "/images/uploads/Black Ford.jpg",
+      "before": "",
+      "after": "",
+      "caption": ""
+    }
+  ]
 }
