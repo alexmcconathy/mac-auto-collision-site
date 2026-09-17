@@ -20,5 +20,10 @@
     "Hoover",
     "Pleasant Grove",
     "the greater Birmingham area"
-  ]
+  ],
+  "headline": "",
+  "subheadline": "",
+  "sms_number": "",
+  "cloudflare_analytics_token": "",
+  "clarity_project_id": ""
 }

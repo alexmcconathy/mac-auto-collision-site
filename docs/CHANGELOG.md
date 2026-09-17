@@ -2,6 +2,21 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.8.0 — 2026-09-17 — The message from the 17 Sept meeting
+- Headline is now "We work for you, not your insurance company." with the sub-line "Family-owned in Bessemer. We come to you for the estimate, handle the claim, and fight for the repair you're owed." Both can be overridden from /admin (Headline, Sub-headline).
+- Primary button: "Request an On-Site Estimate". A "Text Us" button appears (hero and phone bar) once a text-capable number is entered in /admin.
+- Hero checklist rewritten: you choose the shop, we work for you, don't accept the first estimate, ask about your deductible, we come to you.
+- New "We come to you" band under the trust strip: on-site estimates, pickup and delivery, we handle the paperwork.
+- New "Who does your body shop work for?" comparison (insurer-program shop / dealership / us) with a line on Allen's insurance background. "Why Us" in the menu.
+- Claims Handling card replaces "Estimates & Insurance Claims"; step 1 of the process is "We come look at it".
+- Insurance section gains "Got a low estimate?" and "Ask about your deductible" (financing wording only).
+- Five FAQ entries added: the insurer's estimate, why it's low, keeping the check, what on-site means, deductible help.
+- Form asks where the vehicle is, whether to come to you, and how to reach you (call / text / email).
+- Trust strip: Family owned · We come to you · Every insurer welcome · Deductible financing.
+- Traffic monitoring ready: paste a Cloudflare Web Analytics token or a Microsoft Clarity project ID in /admin and the tracking script loads. Nothing loads until one is set.
+
+**How to test:** open the site; new headline and red button. Scroll: "We come to you" band, then services, then the three-column "Who does your body shop work for?". FAQ has 14 questions. The form has "Where is the vehicle?" and a checked "Please come to me" box. Text Us is hidden until a number is set.
+
 ## 1.7.2 — 2026-09-17 — Background photo scaling
 - A tall or square background photo used to be blown up to fill the wide banner, so only a zoomed slice showed. Now the site checks the photo's shape: wide photos still fill the banner; tall or square ones are shown whole, centered, over a blurred copy of themselves that fills the rest. On phones the photo fills the (tall) hero as before.
 - Tip for the shop: the sharper the original, the better. A photo at least 1600 px wide is ideal; the current one is 371 px and will look soft on large screens.

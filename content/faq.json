@@ -35,6 +35,26 @@
     {
       "question": "What should I bring to the estimate?",
       "answer": "Your driver's license, your insurance card, your claim number if you have one, and the vehicle. If the vehicle cannot be driven, photos of the damage are enough to get started."
+    },
+    {
+      "question": "The insurance company already sent me an estimate. Do I have to use it?",
+      "answer": "No. That estimate is a starting point, not the final word. Bring it to us. We inspect the whole car, document anything the estimate missed, and send the insurer the difference. That's called a supplement, and it's normal."
+    },
+    {
+      "question": "Why is the insurance company's estimate so low?",
+      "answer": "Many first estimates are now written by software from a few photos, before anyone opens a door or lifts a panel. Hidden damage isn't in that number. A real inspection almost always finds more."
+    },
+    {
+      "question": "Can I just keep the insurance check and not fix the car?",
+      "answer": "You can, but that first estimate was written to be low, so you may be leaving money and a safe repair on the table. Let us look at the car before you decide. The estimate is free and we'll come to you."
+    },
+    {
+      "question": "What does \"on-site estimate\" mean?",
+      "answer": "We come to wherever the car is: your driveway, your workplace, or the tow yard. You get a written estimate on the spot without taking time off to drive to a shop."
+    },
+    {
+      "question": "Can you help with my deductible?",
+      "answer": "Ask us. We offer financing on deductibles and will explain your options before any work starts. Every policy and repair is different, so the honest answer is a conversation, not a blanket promise."
     }
   ]
 }

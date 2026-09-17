@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mac Auto &amp; Collision | Collision Repair &amp; Auto Body Shop in Bessemer, AL</title>
-<meta name="description" content="Mac Auto & Collision is a family-owned collision repair and auto body shop at 8716 Circle Dr in Bessemer, Alabama. Free estimates, all makes and models, insurance claims welcome. Call (205) 746-1847.">
+<meta name="description" content="Mac Auto & Collision is a family-owned collision repair shop in Bessemer, Alabama that works for you, not the insurance company. We come to you for the estimate, handle the claim, and fight for the repair you're owed. Call (205) 746-1847.">
 <meta name="theme-color" content="#141414">
 <link rel="canonical" href="https://www.macautoandcollision.com/">
 <meta property="og:type" content="website">
@@ -62,6 +62,7 @@
     --shadow:0 10px 30px rgba(20,24,29,.08);
   }
   *{box-sizing:border-box}
+  [hidden]{display:none !important}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
   h1,h2,h3,.display{font-family:"Barlow Condensed",Inter,sans-serif;font-weight:800;letter-spacing:.005em;line-height:1.05;margin:0}
@@ -220,6 +221,22 @@
   .faq details[open] summary::after{content:"\2212"}
   .faq details p{color:var(--ink-2);margin:0 0 1.1rem}
 
+  /* on-site band + comparison */
+  .onsite-grid .card h3{font-size:1.3rem}
+  .compare{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:.5rem}
+  @media (max-width:900px){.compare{grid-template-columns:1fr}}
+  .cmp{background:#1b1b1b;border:1px solid #2a2a2a;border-radius:var(--radius);padding:1.5rem}
+  .cmp h3{margin-bottom:.9rem;font-size:1.3rem;color:#bdbdbd}
+  .cmp ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;color:#bdbdbd;font-size:.98rem}
+  .cmp li{padding-left:1.4rem;position:relative}
+  .cmp li::before{content:"\2013";position:absolute;left:0;color:#777}
+  .cmp-us{background:#241010;border-color:#5a1c16;box-shadow:0 0 0 1px rgba(215,38,30,.35)}
+  .cmp-us h3{color:#fff} .cmp-us ul{color:#f2f2f2}
+  .cmp-us li::before{content:"\2713";color:#ff6b62}
+  .cmp-note{margin-top:1.5rem;color:#bdbdbd;font-size:1.05rem;max-width:70ch}
+  .check-row{display:flex;gap:.6rem;align-items:center;font-weight:600;margin:-.25rem 0 1rem}
+  .check-row input{width:auto;margin:0;accent-color:var(--brand)}
+
   /* estimate form */
   .form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -354,7 +371,7 @@
     <nav id="nav" aria-label="Main">
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#process">How It Works</a></li>
+        <li><a href="#whoworks">Why Us</a></li>
         <li><a href="#insurance">Insurance</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -379,10 +396,11 @@
   <div class="wrap">
     <div>
       <span class="eyebrow">Family-owned · Bessemer, Alabama · 30+ years</span>
-      <h1>Collision repair<br>done <span>right.</span></h1>
-      <p class="lede">From fender benders to major collision damage, Mac Auto &amp; Collision brings your vehicle back to pre-accident condition. All makes and models, honest estimates, and we handle the insurance paperwork with you.</p>
+      <h1 id="heroHeadline">We work for you,<br><span>not your insurance company.</span></h1>
+      <p class="lede" id="heroSub">Family-owned in Bessemer. We come to you for the estimate, handle the claim, and fight for the repair you're owed.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#estimate">Get a Free Estimate</a>
+        <a class="btn btn-primary" href="#estimate">Request an On-Site Estimate</a>
+        <a class="btn btn-ghost js-sms" hidden href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Text Us</a>
         <a class="btn btn-ghost" href="tel:+12057461847">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></svg>
           Call the Shop
@@ -392,11 +410,11 @@
     <div class="hero-card">
       <h3>Been in an accident?</h3>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>You choose the shop.</b> Alabama law lets you pick where your car is repaired, no matter what the insurer suggests.</div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We work with all insurance companies.</b> Bring us the claim number and we take it from there.</div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Free, no-pressure estimates.</b> Stop by the shop or send us photos to get started.</div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Towing help.</b> Can't drive it? Call us and we'll help get your vehicle to the shop.</div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Easy to find.</b> 8716 Circle Dr, Bessemer. <a href="https://www.google.com/maps/dir/?api=1&destination=8716+Circle+Dr,+Bessemer,+AL+35022" target="_blank" rel="noopener" style="color:#fff">Get directions</a>.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>You choose the shop.</b> Alabama law lets you pick. Your insurer can recommend a shop, not require one.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We work for you.</b> Many shops are in insurer programs that reward keeping the insurer's costs down. We're independent. We're paid to fix your car properly.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Don't accept the first estimate.</b> Insurers now write many first estimates from photos with software, and they run low. We inspect the whole car and file for the rest.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Ask about your deductible.</b> We offer financing on deductibles and will walk you through your options before any work starts.</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We come to you.</b> On-site estimates at your home or work, towing help if it can't be driven, and pickup and delivery available. <a href="https://www.google.com/maps/dir/?api=1&destination=8716+Circle+Dr,+Bessemer,+AL+35022" target="_blank" rel="noopener" style="color:#fff">Directions to the shop</a>.</div></li>
       </ul>
     </div>
   </div>
@@ -405,13 +423,28 @@
 <div class="trust" aria-label="Highlights">
   <div class="wrap">
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Family Owned &amp; Operated</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>All Makes &amp; Models</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Insurance Claims Welcome</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free Estimates</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>We Come To You</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Every Insurer Welcome</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Deductible Financing</span>
   </div>
 </div>
 
-<section id="services">
+<section id="onsite">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">On-site estimating</span>
+      <h2>We come to you.</h2>
+      <p class="lede">Can't get to the shop? Tell us where the car is and we'll come look at it: your driveway, your workplace, the tow yard. You get a written estimate on the spot and we take the claim from there.</p>
+    </div>
+    <div class="grid grid-3 onsite-grid">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Estimates where the car is</h3><p>Home, work, or wherever it was towed. No day off work, no second trip. Tell us the address in the form below or call.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5M3 12h18"/></svg></div><h3>Pickup and delivery</h3><p>We can pick the vehicle up for repair and bring it back when it's done. Ask when you call; we'll tell you what's possible for your location.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h4"/></svg></div><h3>We handle the paperwork</h3><p>Claim number, adjuster, supplements, parts. You get updates and a finished car. Your time is the thing we save most.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="services">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">What we do</span>
@@ -446,14 +479,14 @@
       </div>
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h4"/></svg></div>
-        <h3>Estimates &amp; Insurance Claims</h3>
-        <p>Free on-site estimates, or send photos for a virtual estimate. We work directly with your insurance adjuster and handle supplements if hidden damage turns up.</p>
+        <h3>Claims Handling</h3>
+        <p>Full teardown inspection, not a photo guess. We document every bit of damage, deal with your adjuster directly, and file supplements so the repair you're owed is the repair you get.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="process">
+<section id="process">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
@@ -461,11 +494,27 @@
       <p class="lede">Accidents are stressful enough. The repair shouldn't be. Here's what to expect when you bring your vehicle to us.</p>
     </div>
     <div class="steps">
-      <div class="step"><h3>Get an estimate</h3><p>Drive in during business hours or send us photos. We write a clear, itemized estimate at no charge and no obligation.</p></div>
+      <div class="step"><h3>We come look at it</h3><p>At your home, your work or our shop, whichever is easier for you. You get a clear, itemized estimate at no charge and no obligation.</p></div>
       <div class="step"><h3>We handle the claim</h3><p>Give us your claim number and we coordinate with the adjuster, negotiate the repair plan and order OEM or quality parts.</p></div>
       <div class="step"><h3>Repair &amp; refinish</h3><p>Body, frame, mechanical and paint work done in-house. We keep you updated and call you if anything changes.</p></div>
       <div class="step"><h3>Inspect &amp; drive home</h3><p>Every repair is checked, cleaned and reviewed with you before you pick it up. We stand behind our work.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="alt" id="whoworks">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why an independent shop</span>
+      <h2>Who does your body shop work for?</h2>
+      <p class="lede">Your insurance company may steer you toward a shop in its own repair program. That shop is paid, in part, to keep the insurer's costs down. We're independent, and we work for the person who owns the car.</p>
+    </div>
+    <div class="compare">
+      <div class="cmp"><h3>Insurer-program shop</h3><ul><li>Contracted with the insurance company</li><li>Rewarded for keeping claim costs low</li><li>Often starts from the insurer's software estimate</li><li>You bring the car to them</li></ul></div>
+      <div class="cmp"><h3>Dealership body shop</h3><ul><li>Sells parts and labor hours</li><li>Replaces more than it repairs</li><li>Standard process, standard timeline</li><li>You bring the car to them</li></ul></div>
+      <div class="cmp cmp-us"><h3>Mac Auto &amp; Collision</h3><ul><li>Independent. Works for the vehicle owner</li><li>Full teardown inspection, supplements filed for hidden damage</li><li>Repairs when repair is the better outcome</li><li>We come to you, and can pick up and deliver</li></ul></div>
+    </div>
+    <p class="cmp-note">Allen spent years inside the insurance industry. He knows how claims are written, and he uses that for you.</p>
   </div>
 </section>
 
@@ -479,6 +528,8 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We work with every insurance carrier</b><span>State Farm, Allstate, Progressive, GEICO, USAA, Alfa and the rest. If your policy covers it, we can repair it.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>One estimate is all you need</b><span>Alabama does not require multiple estimates. Bring us the claim and we'll take it from there.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>We handle supplements</b><span>If we find hidden damage once the vehicle is apart, we document it and work it out with the adjuster, not you.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Got a low estimate from the insurer?</b><span>Many first estimates are written by software from photos before anyone lifts a panel. Bring it to us. We inspect the whole car and send them the difference.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Ask about your deductible</b><span>We offer financing on deductibles and will explain your options before any work starts, so cost isn't the reason you skip a repair.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Paying out of pocket?</b><span>No claim, no problem. We'll give you an honest price and repair options that fit your budget.</span></div></li>
       </ul>
     </div>
@@ -490,7 +541,7 @@
   </div>
 </section>
 
-<section class="alt" id="about">
+<section id="about">
   <div class="wrap split">
     <div class="stat-grid">
       <div class="stat"><div class="display">30+</div><p>Years serving Bessemer and the surrounding area</p></div>
@@ -549,7 +600,7 @@
     <div>
       <span class="eyebrow">Free estimate</span>
       <h2>Tell us about the damage</h2>
-      <p class="lede">Fill this out and we'll get back to you with next steps, usually the same business day. Or skip the form and call us directly at <a href="tel:+12057461847" style="white-space:nowrap">(205) 746-1847</a>.</p>
+      <p class="lede">Tell us where the car is and we'll come look at it, usually the same business day. Or skip the form and call us at <a href="tel:+12057461847" style="white-space:nowrap">(205) 746-1847</a>.</p>
       <ul class="checks">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Have photos?</b><span>Mention it in the form and we'll reply with where to send them for a virtual estimate.</span></div></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Prefer to drop by?</b><span>Walk-in estimates are welcome Monday through Friday, <span class="js-hours-weekday">8:00 AM – 5:00 PM</span>.</span></div></li>
@@ -571,12 +622,13 @@
         <option>No, paying out of pocket</option>
         <option>Not sure yet</option>
       </select>
-      <label for="besttime">Best time to call you</label>
-      <select id="besttime" name="besttime">
-        <option>Anytime during business hours</option>
-        <option>Morning (8 to 12)</option>
-        <option>Afternoon (12 to 5)</option>
-      </select>
+      <label for="location">Where is the vehicle? (address, or "at the shop")</label>
+      <input id="location" name="location" placeholder="Street address, workplace, or tow yard" autocomplete="street-address">
+      <label class="check-row"><input type="checkbox" id="onsite" name="onsite" value="yes" checked> Please come to me for the estimate</label>
+      <div class="form-row">
+        <div><label for="reach">Best way to reach you</label><select id="reach" name="reach"><option>Call</option><option>Text</option><option>Email</option></select></div>
+        <div><label for="besttime">Best time</label><select id="besttime" name="besttime"><option>Anytime during business hours</option><option>Morning (8 to 12)</option><option>Afternoon (12 to 5)</option></select></div>
+      </div>
       <label for="details">What happened?</label>
       <textarea id="details" name="details" placeholder="Describe the damage and where it is on the vehicle. Let us know if the vehicle is drivable."></textarea>
       <div style="position:absolute;left:-9999px" aria-hidden="true"><label for="website_url">Leave this empty</label><input id="website_url" name="_gotcha" tabindex="-1" autocomplete="off"></div>
@@ -655,7 +707,8 @@
 
 <div class="callbar" aria-label="Quick actions">
   <a class="btn btn-primary" href="tel:+12057461847">Call Now</a>
-  <a class="btn btn-dark" href="#estimate">Free Estimate</a>
+  <a class="btn btn-dark js-sms" hidden href="#">Text Us</a>
+  <a class="btn btn-dark" href="#estimate">Estimate</a>
 </div>
 
 <script>
@@ -698,6 +751,11 @@
       document.querySelectorAll('.js-hours-weekday').forEach(function(el){ el.textContent = wk; });
       document.querySelectorAll('.js-hours-weekend').forEach(function(el){ el.textContent = c.hours.weekend || 'Closed'; });
     }
+    if (c.headline && String(c.headline).trim()){ var hh = document.getElementById('heroHeadline'); var parts = String(c.headline).split('|'); hh.innerHTML = esc(parts[0].trim()) + (parts[1] ? '<br><span>' + esc(parts[1].trim()) + '</span>' : ''); }
+    if (c.subheadline && String(c.subheadline).trim()){ document.getElementById('heroSub').textContent = c.subheadline; }
+    if (c.sms_number){ var smsDigits = String(c.sms_number).replace(/\D/g, ''); if (smsDigits.length >= 10){ var smsHref = 'sms:+1' + smsDigits.slice(-10) + '?&body=' + encodeURIComponent("Hi, I'd like an estimate for my vehicle."); document.querySelectorAll('.js-sms').forEach(function(a){ a.href = smsHref; a.hidden = false; }); } }
+    if (c.cloudflare_analytics_token && /^[a-f0-9]{32}$/i.test(String(c.cloudflare_analytics_token).trim())){ var cf = document.createElement('script'); cf.defer = true; cf.src = 'https://static.cloudflareinsights.com/beacon.min.js'; cf.setAttribute('data-cf-beacon', JSON.stringify({ token: String(c.cloudflare_analytics_token).trim() })); document.head.appendChild(cf); }
+    if (c.clarity_project_id && /^[a-z0-9]{6,20}$/i.test(String(c.clarity_project_id).trim())){ var cid = String(c.clarity_project_id).trim(); window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); }; var cl = document.createElement('script'); cl.async = true; cl.src = 'https://www.clarity.ms/tag/' + cid; document.head.appendChild(cl); }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
     if (c.hero_image && String(c.hero_image).trim()){
       var hero = document.getElementById('top'), url = 'url("' + img(c.hero_image).replace(/"/g, '') + '")';
@@ -764,13 +822,13 @@
     if (missing.length){ form[missing[0]].focus(); show('Please fill in your name, phone and vehicle so we can reach you.'); return; }
     var f = form, lines = [
       'Name: ' + f.name.value, 'Phone: ' + f.phone.value, 'Email: ' + (f.email.value || 'n/a'),
-      'Vehicle: ' + f.vehicle.value, 'Insurance: ' + f.claim.value, 'Best time to call: ' + f.besttime.value, '', 'Details:', f.details.value
+      'Vehicle: ' + f.vehicle.value, 'Insurance: ' + f.claim.value, 'Vehicle location: ' + (f.location.value || 'not given'), 'Come to me for the estimate: ' + (f.onsite.checked ? 'yes' : 'no'), 'Reach me by: ' + f.reach.value, 'Best time: ' + f.besttime.value, '', 'Details:', f.details.value
     ];
     var btn = form.querySelector('button[type=submit]');
     if (FORM_ENDPOINT){
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(FORM_ENDPOINT, { method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, besttime:f.besttime.value, details:f.details.value, _gotcha:f._gotcha.value, _subject:'Estimate request: ' + f.vehicle.value + ' (' + f.name.value + ')', _replyto:f.email.value }) })
+        body: JSON.stringify({ name:f.name.value, phone:f.phone.value, email:f.email.value, vehicle:f.vehicle.value, claim:f.claim.value, location:f.location.value, onsite:f.onsite.checked ? 'yes' : 'no', reach:f.reach.value, besttime:f.besttime.value, details:f.details.value, _gotcha:f._gotcha.value, _subject:'Estimate request: ' + f.vehicle.value + ' (' + f.name.value + ')', _replyto:f.email.value }) })
       .then(function(r){ if(!r.ok) throw new Error(r.status); var who = f.name.value.trim(); form.reset(); show('Thanks, ' + who + '. We got your request and will call you back shortly, usually the same business day.'); })
       .catch(function(){ show('Sorry, something went wrong sending the form. Please call us at ' + SHOP_PHONE_DISPLAY + '.'); })
       .finally(function(){ btn.disabled = false; btn.textContent = 'Request My Free Estimate'; });

@@ -56,6 +56,12 @@ Every save is a commit in the GitHub repo, so nothing is ever lost and any chang
 ## Design
 Chosen by the shop on 2026-09-17 from five rendered mockups: black page (#141414), graphite cards (#1B1B1B), red accent (#D7261E), silver text; layout unchanged from launch. The look lives in the `/* ===== Theme` block at the end of the `<style>` in `index.html`; the rules above it are the original orange look, so a re-skin is a matter of editing that block. Mockup images: `C:\AMAC_REPO\Mac Auto design mockups\` (not in the repo).
 
+**Message** (since v1.8.0, from the 17 Sept 2026 meeting): headline "We work for you, not your insurance company", on-site estimating band, "Who does your body shop work for?" comparison, AI-estimate and deductible bullets/FAQs. Deductible wording is deliberately limited to financing until the shop's agent or attorney confirms what else may be advertised. Headline and sub-headline can be overridden in admin → Contact, Hours & About.
+
+**Text Us buttons** appear only when *Text-message number* is filled in (the number must be able to receive SMS).
+
+**Traffic monitoring**: admin → Contact, Hours & About → paste a *Cloudflare Web Analytics token* and/or a *Microsoft Clarity project ID*; the page loads the matching script only when a value is present and looks valid. Google Search Console needs a one-time HTML file in the repo root or a DNS TXT record at Porkbun (ask Alex).
+
 **Background photo** (admin → Contact, Hours & About): shown faded behind the headline. Wide photos fill the banner; tall or square ones are shown whole over a blurred copy (decided automatically from the photo's shape). *Background photo fade* picks Light / Medium / Dark. Ask the shop for originals of 1600 px or wider; small files look soft.
 
 ## Roadmap, changelog and yearly checklist

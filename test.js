@@ -57,7 +57,7 @@ if (exists('content/faq.json')) {
 
 console.log('index.html');
 const html = read('index.html');
-['top', 'services', 'process', 'insurance', 'about', 'gallery', 'reviews', 'estimate', 'contact', 'estimateForm', 'formMsg', 'announce', 'aboutText', 'galleryGrid', 'reviewGrid']
+['top', 'onsite', 'services', 'process', 'whoworks', 'insurance', 'about', 'gallery', 'reviews', 'faq', 'estimate', 'contact', 'estimateForm', 'formMsg', 'announce', 'aboutText', 'galleryGrid', 'reviewGrid', 'heroHeadline', 'heroSub']
   .forEach((id) => check(html.includes('id="' + id + '"'), 'has #' + id));
 check(!html.includes(SHOP.oldPhone), 'no old phone number (' + SHOP.oldPhone + ')');
 check(!html.includes(SHOP.oldStreet), 'no old street (' + SHOP.oldStreet + ')');

@@ -75,7 +75,27 @@ Today the form opens the visitor's own email app. With Formspree the request is 
 ## 11. One-click admin login (optional, 20 minutes, only if several people will edit)
 - [ ] Follow `docs/ONE_CLICK_LOGIN.md` in the website folder (or ask Alex). It is a free Cloudflare account plus a GitHub "OAuth App"; no monthly cost. After it, editors click **Sign in with GitHub** instead of pasting a token.
 
-## 12. Later ideas (ask Alex)
+## 12. Turn on traffic monitoring (10 minutes, free)
+Recommended pair: Google Search Console (what people searched to find you) and Cloudflare Web Analytics (how many visits, from where, which pages). Both free, no cookie banner needed.
+- [ ] **Cloudflare Web Analytics**: sign in at https://dash.cloudflare.com (free account) → **Web Analytics** → **Add a site** → enter `macautoandcollision.com` → choose "JS snippet" → copy the 32-character token from the snippet (`"token":"..."`). Admin page → **Contact, Hours & About** → paste into **Cloudflare Web Analytics token** → **Save**. Visits show in the Cloudflare dashboard within a day.
+- [ ] **Google Search Console**: sign in at https://search.google.com/search-console with the shop's Google account → **Add property** → **URL prefix** → `https://www.macautoandcollision.com` → choose the **HTML file** method → download the file → send it to Alex to put in the site folder (or use the DNS method at Porkbun) → click **Verify**. Then **Sitemaps** → add `sitemap.xml`.
+- [ ] Optional: **Microsoft Clarity** (free heatmaps and session replays): https://clarity.microsoft.com → sign in → **Add new project** → copy the Project ID → paste into **Microsoft Clarity project ID** in the admin page → **Save**.
+
+## 13. Decisions still needed for the new message (answer these and Alex finishes the copy)
+- [ ] **Deductibles**: what may be said publicly? Site currently says financing only. Check with the shop's insurance agent or an attorney before adding "reduce" or "waive".
+- [ ] **Text messages**: can (205) 746-1847 receive texts? If not, is there a mobile number to use? Enter it in admin → *Text-message number* to switch the Text Us buttons on.
+- [ ] **On-site estimates**: how far, which days/hours, any charge?
+- [ ] **Pickup and delivery**: radius, cost, free with a repair?
+- [ ] **Deductible financing**: through whom, typical terms?
+- [ ] **Allen's insurance background**: one sentence (role, years).
+- [ ] **Team**: three names, roles, years, one photo each. OK to publish names?
+- [ ] **Warranty** on workmanship: yes/no, how long?
+- [ ] **Turnaround**: typical days for small / medium / large repairs.
+- [ ] **Vehicle security**: what is in place (fence, cameras, indoor)?
+- [ ] **Commercial/fleet accounts**: acceptable wording without names?
+- [ ] **"Mac Snap" on-site estimating**: keep the name or drop it?
+
+## 14. Later ideas (ask Alex)
 - [ ] **Spanish page**, **online drop-off request**, **insurance partner logos**: see `docs/ROADMAP.md` Phase 6.
 
 ## Every September (domain renews 17 Sept)
