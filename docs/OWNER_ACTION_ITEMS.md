@@ -76,8 +76,7 @@ Today the form opens the visitor's own email app. With Formspree the request is 
 - [ ] Follow `docs/ONE_CLICK_LOGIN.md` in the website folder (or ask Alex). It is a free Cloudflare account plus a GitHub "OAuth App"; no monthly cost. After it, editors click **Sign in with GitHub** instead of pasting a token.
 
 ## 11b. Point the Yelp listing at the website and keep the Yelp card current (10 minutes)
-- [ ] Go to https://biz.yelp.com and sign in (or click **Claim** if the page has never been claimed; Yelp verifies by phone call to (205) 746-1847 or by email).
-- [ ] Left menu → **Business Information** → **Edit** next to *Website* → enter `https://www.macautoandcollision.com` → **Save**. Yelp reviews edits before they show; allow a day or two.
+- [x] Website link on Yelp: done 17 Sept. Yelp shows "Business website: macautoandcollision.com" and the link lands on the live site (verified).
 - [ ] While there, confirm the address, phone and hours match the site, and upload a couple of the same photos.
 - [ ] Optional, to show a real Yelp review on the site: on yelp.com open one of the shop's reviews → click the **⋯** menu on the review → **Embed review** → in the code shown, copy the value after `data-review-id="` → website admin page → **Contact, Hours & About** → **Yelp embedded reviews** → **Add** → paste → **Save**.
 - [ ] Whenever the Yelp rating or review count changes, update **Yelp rating** and **Yelp review count** in the admin page (currently 5.0 and 1).
@@ -101,7 +100,12 @@ Recommended pair: Google Search Console (what people searched to find you) and C
 - [x] **Vehicle security**: nothing claimed.
 - [x] **Commercial/fleet accounts**: new "Businesses & fleets" section, FAQ entry and a form checkbox. No customer names.
 - [x] **"Mac Snap"**: dropped. Update the Google Business Profile description to match (item 4).
-- [ ] **Modern-car photos**: as of the evening of 17 Sept the gallery still holds the six photos uploaded at 7:08 AM (one modern: the red hatchback in the booth). If more were uploaded, they didn't save. In the admin page, after choosing photos, the blue **Save** button at the top must be clicked; the site updates about two minutes later.
+- [ ] **Modern-car photos**: the 6:39 PM save on 17 Sept recorded 25 new photo names in the gallery, but the photo files themselves never made it (too many large phone photos in one save; the admin tool sends them all in one request and it gave up). The site now hides entries whose files are missing, so nothing looks broken, but the photos are not there yet. To fix:
+  1. Admin → **Photo Gallery** → in **Quick photos**, remove the 25 entries that show a broken thumbnail (hover → ✕), then **Save**.
+  2. Re-add them **five at a time**: choose 5 → **Save** → wait for "saved" → next 5. Photos straight from an iPhone are 3 to 8 MB each; if a batch still fails, share them from the phone at "Large" or "Medium" size first, or send them to Alex.
+  3. Names like IMG_3327.JPEG are fine; the admin tool keeps the file name.
+- [ ] **Logo**: the logo save did not arrive either. Admin → **Contact, Hours & About** → **Logo** → upload the red Mac Auto & Collision artwork (PNG, transparent or white background, 800 px wide or more) on its own, then **Save**. It replaces the small car icon in the header and shows in the footer.
+- [ ] **Logo**: once saving works, admin → **Contact, Hours & About** → **Logo** → upload the red Mac Auto & Collision artwork (PNG, transparent or white background, at least 800 px wide) → **Save**. It replaces the small car icon in the header and shows in the footer.
 
 ## 14. Later ideas (ask Alex)
 - [ ] **Spanish page**, **online drop-off request**, **insurance partner logos**: see `docs/ROADMAP.md` Phase 6.

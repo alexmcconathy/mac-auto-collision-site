@@ -6,6 +6,9 @@ const root = __dirname;
 let failures = 0;
 const ok = (msg) => console.log('  ok   ' + msg);
 const fail = (msg) => { failures++; console.log('  FAIL ' + msg); };
+let warnings = 0;
+const warn = (msg) => { warnings++; console.log('  WARN ' + msg); };
+const checkFile = (cond, msg) => (cond ? ok(msg) : warn(msg + '  <- file missing; the site hides this entry until the file is uploaded'));
 const check = (cond, msg) => (cond ? ok(msg) : fail(msg));
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const exists = (p) => fs.existsSync(path.join(root, p));
@@ -40,13 +43,13 @@ if (gallery) {
     check(!!it.title, 'gallery item ' + (i + 1) + ' has a title');
     check(!!has, 'gallery item ' + (i + 1) + ' has an image or a before+after pair');
     ['image', 'before', 'after'].forEach((k) => {
-      if (it[k] && !/^(https?:|data:)/.test(it[k])) check(exists(it[k].replace(/^\//, '')), 'gallery item ' + (i + 1) + ' file exists: ' + it[k]);
+      if (it[k] && !/^(https?:|data:)/.test(it[k])) checkFile(exists(it[k].replace(/^\//, '')), 'gallery item ' + (i + 1) + ' file exists: ' + it[k]);
     });
   });
 }
 if (gallery && gallery.photos !== undefined) {
   check(Array.isArray(gallery.photos), 'gallery.photos is a list');
-  (gallery.photos || []).forEach((p, i) => { const src = typeof p === 'string' ? p : (p && p.image) || ''; if (src && !/^(https?:|data:)/.test(src)) check(exists(src.replace(/^\//, '')), 'gallery photo ' + (i + 1) + ' file exists: ' + src); });
+  (gallery.photos || []).forEach((p, i) => { const src = typeof p === 'string' ? p : (p && p.image) || ''; if (src && !/^(https?:|data:)/.test(src)) checkFile(exists(src.replace(/^\//, '')), 'gallery photo ' + (i + 1) + ' file exists: ' + src); });
 }
 const testimonials = json('content/testimonials.json', ['items']);
 if (testimonials) (testimonials.items || []).forEach((it, i) => check(it.name && it.quote, 'review ' + (i + 1) + ' has name and quote'));
@@ -68,6 +71,7 @@ check(telLinks.length > 0 && telLinks.every((t) => t.includes(SHOP.telDigits)), 
 const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
 check(ldBlocks.length >= 1, 'has JSON-LD structured data');
 ldBlocks.forEach((b, i) => { try { const j = JSON.parse(b); ok('JSON-LD block ' + (i + 1) + ' parses (' + j['@type'] + ')'); if (j['@type'] === 'AutoBodyShop') { check(j.telephone.replace(/\D/g, '').endsWith(SHOP.telDigits), 'JSON-LD phone matches'); check(j.address.streetAddress === SHOP.street, 'JSON-LD street matches'); } } catch (e) { fail('JSON-LD block ' + (i + 1) + ' invalid: ' + e.message); } });
+check(html.includes('"foundingDate": "1993"'), 'structured data says founded 1993');
 check(html.includes('rel="canonical" href="https://' + SHOP.domain + '/"'), 'canonical link is https://' + SHOP.domain + '/');
 check(html.includes('content/settings.json') && html.includes('content/gallery.json') && html.includes('content/testimonials.json'), 'page loads the three content files');
 // every local asset the page references must exist
@@ -91,5 +95,6 @@ if (exists('sitemap.xml')) check(read('sitemap.xml').includes('https://' + SHOP.
 if (exists('robots.txt')) check(read('robots.txt').includes('Sitemap: https://' + SHOP.domain + '/sitemap.xml'), 'robots.txt points at the sitemap');
 
 console.log('');
+if (warnings) console.log(warnings + ' warning(s): content points at files that are not in the repo (the page hides them). Re-upload those photos through /admin.');
 if (failures) { console.log(failures + ' check(s) FAILED'); process.exit(1); }
-console.log('All checks passed.');
+console.log(warnings ? 'All checks passed (with warnings).' : 'All checks passed.');

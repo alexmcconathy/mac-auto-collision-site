@@ -50,6 +50,7 @@ collections:
           - { label: "Owner's insurance background (one or two sentences; shows under the 'Who does your body shop work for?' comparison; leave empty to hide)", name: "owner_background", widget: "text", required: false }
           - { label: "Cloudflare Web Analytics token (32 characters from the Cloudflare dashboard; leave empty for no tracking)", name: "cloudflare_analytics_token", widget: "string", required: false }
           - { label: "Microsoft Clarity project ID (from clarity.microsoft.com; leave empty for none)", name: "clarity_project_id", widget: "string", required: false }
+          - { label: "Logo (the red Mac Auto & Collision artwork; PNG with a white or transparent background; shows in the header and footer; leave empty for the small car icon)", name: "logo_image", widget: "image", required: false }
           - { label: "Background photo (shows faded behind the headline at the top of the site; upload a wide shot of the shop or a finished car; leave empty for plain black)", name: "hero_image", widget: "image", required: false }
           - { label: "Background photo fade (how much dark tint sits over the photo)", name: "hero_fade", widget: "select", options: ["Light", "Medium", "Dark"], default: "Light", required: false }
           - { label: "Yelp page link", name: "yelp_url", widget: "string", required: false, default: "https://www.yelp.com/biz/mac-auto-and-collision-bessemer-2" }

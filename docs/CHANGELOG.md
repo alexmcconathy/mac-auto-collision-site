@@ -2,6 +2,18 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.10.2 — 2026-09-17 — Missing photos never show as broken tiles
+- An admin save on 17 Sept added 25 photo entries to the gallery but the photo files themselves failed to upload (too many large phone photos in one save). The live gallery showed broken images. Now any gallery entry whose file is missing is removed from the page as it loads, a missing background photo falls back to the plain dark hero, and a missing logo keeps the small icon.
+- The site check reports missing photo files as warnings with the file names instead of failing, so code changes can still ship while the shop re-uploads.
+
+**How to test:** with a gallery entry pointing at a file that doesn't exist, the gallery shows only the photos that do. `npm test` prints WARN lines naming the missing files.
+
+## 1.10.1 — 2026-09-17 — Founded 1993, logo slot
+- "Since 1993" in the hero eyebrow, a 1993 stat card, "Est. 1993" in the footer, and foundingDate in the structured data.
+- Logo: upload the red Mac Auto & Collision artwork in /admin → Contact, Hours & About → Logo. It replaces the small car icon in the header (on a white plate, so the red-on-white art reads on the dark bar) and appears in the footer. Nothing changes until a file is uploaded.
+
+**How to test:** eyebrow reads "Since 1993". Upload the logo in the admin page; the header shows it.
+
 ## 1.10.0 — 2026-09-17 — The shop's answers
 - Deductible line is now "Ask us how to reduce your deductible", with in-house financing mentioned, in the hero card, the insurance section and the FAQ. Trust strip says "Ask about your deductible".
 - Text Us buttons are live (hero, phone bar, fleet section): (205) 746-1847 receives texts.

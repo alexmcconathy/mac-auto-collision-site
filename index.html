@@ -51,6 +51,7 @@
     "closes": "17:00"
   }],
   "areaServed": ["Bessemer AL","Hueytown AL","McCalla AL","Helena AL","Hoover AL","Birmingham AL"],
+  "foundingDate": "1993",
   "founder": { "@type": "Person", "name": "Allen McConathy" }
 }
 </script>
@@ -257,6 +258,12 @@
   .yelp-embeds{display:grid;gap:1rem}
   .yelp-embeds .yelp-review{display:block;background:#fff;border-radius:12px;padding:.75rem 1rem;color:#222;font-size:.95rem}
 
+  /* uploaded logo */
+  .logo-img{height:52px;width:auto;max-width:260px;background:#fff;border-radius:10px;padding:4px 8px;display:block}
+  .logo.has-img .logo-mark,.logo.has-img .logo-text{display:none}
+  .logo-img-foot{height:64px;width:auto;max-width:280px;background:#fff;border-radius:10px;padding:6px 10px;margin-bottom:.75rem;display:block}
+  @media (max-width:380px){.logo-img{height:44px;max-width:200px}}
+
   /* estimate form */
   .form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -383,6 +390,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Mac Auto & Collision home">
+      <img class="logo-img" id="logoImg" hidden alt="Mac Auto & Collision, Inc." height="52">
       <span class="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none"><path d="M10 42h44l-5-13-7-9H22l-7 9z" fill="#d7261e"/><circle cx="21" cy="45" r="6" fill="#fff"/><circle cx="43" cy="45" r="6" fill="#fff"/><path d="M24 29h16l3 6H21z" fill="#14181d" opacity=".5"/></svg>
       </span>
@@ -415,7 +423,7 @@
   <div class="hero-bg" aria-hidden="true"><div class="hero-bg-blur"></div><div class="hero-bg-photo"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div></div>
   <div class="wrap">
     <div>
-      <span class="eyebrow">Family-owned · Bessemer, Alabama · 30+ years</span>
+      <span class="eyebrow">Family-owned · Bessemer, Alabama · Since 1993</span>
       <h1 id="heroHeadline">We work for you,<br><span>not your insurance company.</span></h1>
       <p class="lede" id="heroSub">Family-owned in Bessemer. We come to you for the estimate, handle the claim, and fight for the repair you're owed.</p>
       <div class="hero-actions">
@@ -586,7 +594,7 @@
 <section id="about">
   <div class="wrap split">
     <div class="stat-grid">
-      <div class="stat"><div class="display">30+</div><p>Years serving Bessemer and the surrounding area</p></div>
+      <div class="stat"><div class="display">1993</div><p>Founded. Family owned and operated ever since</p></div>
       <div class="stat"><div class="display">All</div><p>Makes and models, domestic and import</p></div>
       <div class="stat"><div class="display">1</div><p>Location, family owned and operated</p></div>
       <div class="stat"><div class="display">$0</div><p>For an estimate, on site or from photos</p></div>
@@ -728,6 +736,7 @@
 <footer>
   <div class="wrap">
     <div>
+      <img class="logo-img-foot" id="logoImgFoot" hidden alt="Mac Auto & Collision, Inc." height="64">
       <h4>Mac Auto &amp; Collision</h4>
       <p>Family-owned collision repair, auto body, paint and mechanical service in Bessemer, Alabama. Serving <span class="js-service-areas">Bessemer, Hueytown, McCalla, Helena, Hoover and the greater Birmingham area</span>.</p>
     </div>
@@ -752,7 +761,7 @@
       </ul>
     </div>
     <div class="copyright">
-      <span>© <span id="year"></span> Mac Auto &amp; Collision, Inc. All rights reserved.</span>
+      <span>© <span id="year"></span> Mac Auto &amp; Collision, Inc. Est. 1993. All rights reserved.</span>
       <span>Bessemer, Alabama</span>
     </div>
   </div>
@@ -830,6 +839,7 @@
     if (c.clarity_project_id && /^[a-z0-9]{6,20}$/i.test(String(c.clarity_project_id).trim())){ var cid = String(c.clarity_project_id).trim(); window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); }; var cl = document.createElement('script'); cl.async = true; cl.src = 'https://www.clarity.ms/tag/' + cid; document.head.appendChild(cl); }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
     applyYelp(c);
+    if (c.logo_image && String(c.logo_image).trim()){ var li = document.getElementById('logoImg'), lf = document.getElementById('logoImgFoot'); li.onerror = function(){ li.hidden = true; lf.hidden = true; li.closest('.logo').classList.remove('has-img'); }; li.src = img(c.logo_image); li.hidden = false; li.closest('.logo').classList.add('has-img'); lf.src = img(c.logo_image); lf.hidden = false; }
     if (c.owner_background && String(c.owner_background).trim()){ var on = document.getElementById('ownerNote'); on.textContent = c.owner_background; on.hidden = false; }
     if (c.hero_image && String(c.hero_image).trim()){
       var hero = document.getElementById('top'), url = 'url("' + img(c.hero_image).replace(/"/g, '') + '")';
@@ -838,7 +848,7 @@
       hero.classList.add('has-photo');
       var fade = String(c.hero_fade || 'Light').toLowerCase(); hero.classList.remove('fade-medium', 'fade-dark'); if (fade === 'medium' || fade === 'dark') hero.classList.add('fade-' + fade);
       // wide photos fill the banner; tall or square ones are shown whole over a blurred copy
-      var probe = new Image(); probe.onload = function(){ hero.classList.toggle('photo-fit', probe.naturalWidth / probe.naturalHeight < 1.5); }; probe.src = img(c.hero_image);
+      var probe = new Image(); probe.onload = function(){ hero.classList.toggle('photo-fit', probe.naturalWidth / probe.naturalHeight < 1.5); }; probe.onerror = function(){ hero.classList.remove('has-photo', 'photo-fit'); }; probe.src = img(c.hero_image);
     }
     if (c.google_review_url && /^https?:\/\//.test(c.google_review_url)){ document.querySelectorAll('.js-google-review').forEach(function(a){ a.href = c.google_review_url; a.hidden = false; }); }
     if (Array.isArray(c.service_areas) && c.service_areas.length){
@@ -854,14 +864,15 @@
     var photos = (g && g.photos || []).map(function(p){ return typeof p === 'string' ? p : (p && (p.image || p.src)) || ''; }).filter(Boolean);
     if (!items.length && !photos.length) return;
     if (g.intro) document.getElementById('galleryIntro').textContent = g.intro;
-    var quick = photos.map(function(p, n){ return '<figure class="shot shot-plain"><img src="' + esc(img(p)) + '" alt="Mac Auto &amp; Collision work photo ' + (n + 1) + '" loading="lazy"></figure>'; }).join('');
+    var quick = photos.map(function(p, n){ return '<figure class="shot shot-plain"><img src="' + esc(img(p)) + '" alt="Mac Auto &amp; Collision work photo ' + (n + 1) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"></figure>'; }).join('');
     document.getElementById('galleryGrid').innerHTML = quick + items.map(function(i){
       var media = (i.before && i.after)
-        ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy"><em class="after">After</em></div></div>'
-        : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy">';
+        ? '<div class="pair"><div><img src="' + esc(img(i.before)) + '" alt="Before: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"><em>Before</em></div><div><img src="' + esc(img(i.after)) + '" alt="After: ' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();"><em class="after">After</em></div></div>'
+        : '<img src="' + esc(img(i.image)) + '" alt="' + esc(i.title) + '" loading="lazy" onerror="var f=this.closest(\'figure\');if(f)f.remove();">';
       return '<figure class="shot">' + media + '<figcaption><b>' + esc(i.title) + '</b>' + (i.caption ? '<span>' + esc(i.caption) + '</span>' : '') + '</figcaption></figure>';
     }).join('');
     document.getElementById('gallery').hidden = false;
+    setTimeout(function(){ if (!document.querySelectorAll('#galleryGrid .shot').length) document.getElementById('gallery').hidden = true; }, 4000);
   }
   function applyYelp(c){
     if (!c) return false;
