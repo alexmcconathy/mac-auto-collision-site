@@ -1,4 +1,4 @@
-# Mac Auto & Collision website — improvement roadmap ✅ | ✅ | ✅ | ✅ | ✅ |
+# Mac Auto & Collision website — improvement roadmap
 
 Written 2026-09-17, the day the site went live at https://www.macautoandcollision.com.
 Each phase is small enough to ship on its own. Every push to `main` goes live within two minutes, so each phase is verified locally (`npm test` + a rendered check) before it is pushed.
@@ -9,11 +9,11 @@ Phases 0–4 shipped 2026-09-17 (v1.1.0–v1.5.0, see CHANGELOG). Phase 5 is the
 
 | # | Phase | Goal | Status |
 |---|-------|------|--------|
-| 0 | Foundations | A test gate (`npm test`), a changelog, this roadmap | ⬜ |
-| 1 | Findability | Get found on Google for "collision repair Bessemer": sitemap, robots, social preview image, FAQ with structured data, 404 page | ⬜ |
-| 2 | Conversion & trust | Hero photo slot, Google review button, directions link, service-area list, all editable from /admin | ⬜ |
-| 3 | Accessibility & polish | Color contrast to WCAG AA, visible keyboard focus, print view, icons for phones/home screens | ⬜ |
-| 4 | Operations | CI check on every push, README/manual updates, yearly checklist | ⬜ |
+| 0 | Foundations | A test gate (`npm test`), a changelog, this roadmap | ✅ |
+| 1 | Findability | Get found on Google for "collision repair Bessemer": sitemap, robots, social preview image, FAQ with structured data, 404 page | ✅ |
+| 2 | Conversion & trust | Hero photo slot, Google review button, directions link, service-area list, all editable from /admin | ✅ |
+| 3 | Accessibility & polish | Color contrast to WCAG AA, visible keyboard focus, print view, icons for phones/home screens | ✅ |
+| 4 | Operations | CI check on every push, README/manual updates, yearly checklist | ✅ |
 | 5 | Owner tasks | Photos, reviews, Google Business Profile, directory cleanup, .net forwarding, form service, hours | ⏳ |
 | 6 | Later ideas | Spanish page, online appointment request, financing/insurance partner logos, blog posts for SEO | ⬜ |
 
