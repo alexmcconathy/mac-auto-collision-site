@@ -12,6 +12,21 @@ backend:
 media_folder: "images/uploads"
 public_folder: "images/uploads"
 
+# Uploads are shrunk in the browser before they are saved: max 1600 px on the long side, WebP at quality 82.
+# A phone photo goes from 3-8 MB to roughly 150-300 KB, so a batch of ten saves comfortably in one request.
+# Files over 15 MB are refused outright.
+media_libraries:
+  default:
+    config:
+      max_file_size: 15728640
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
 site_url: "https://www.macautoandcollision.com"
 display_url: "https://www.macautoandcollision.com"
 logo_url: "logo.svg"
@@ -71,7 +86,7 @@ collections:
             widget: "image"
             multiple: true
             required: false
-            hint: "Finished cars, the shop, the crew. Shown in the gallery as plain photos. Use the list below when you want a caption or a before/after pair."
+            hint: "Finished cars, the shop, the crew. Shown in the gallery as plain photos. Add up to 10 photos per Save (they are shrunk automatically). Use the list below when you want a caption or a before/after pair."
           - label: "Captioned photos and Before & After pairs"
             name: "items"
             widget: "list"

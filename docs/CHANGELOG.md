@@ -2,6 +2,12 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.11.1 — 2026-09-17 — Logo recolored, uploads shrunk automatically
+- Logo and header mark recolored from the artwork's pink-red (#FF1F62) to the site's red (#D7261E), with a transparent background.
+- Admin uploads are now shrunk in the browser before saving: 1600 px on the long side, WebP at quality 82. A phone photo drops from 3 to 8 MB to roughly 150 to 300 KB, so a batch of ten saves in one request. Files over 15 MB are refused. The Quick photos hint says "up to 10 per Save".
+
+**How to test:** header mark and footer logo are the same red as the buttons. In /admin, add five phone photos to Quick photos and Save; they arrive as small .webp files in images/uploads and show in the gallery.
+
 ## 1.11.0 — 2026-09-17 — Photos and logo added
 - 24 shop photos added from the shop's iCloud export (resized for the web, phone rotation applied, modern vehicles first), plus the six earlier photos at the end. 30 in the gallery.
 - Logo added: the full artwork in the footer, and the car-only mark beside the shop name in the header, both on a white plate. Admin fields: *Logo* and *Logo mark for the header*.

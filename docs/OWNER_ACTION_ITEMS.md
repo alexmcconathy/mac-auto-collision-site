@@ -100,7 +100,7 @@ Recommended pair: Google Search Console (what people searched to find you) and C
 - [x] **Vehicle security**: nothing claimed.
 - [x] **Commercial/fleet accounts**: new "Businesses & fleets" section, FAQ entry and a form checkbox. No customer names.
 - [x] **"Mac Snap"**: dropped. Update the Google Business Profile description to match (item 4).
-- [x] **Modern-car photos**: 24 photos added by Alex on 17 Sept (evening) from the iCloud folder, shrunk to web size, modern vehicles first. The six earlier photos are kept at the end of the list. Reorder or remove any of them in admin → Photo Gallery → Quick photos. Lesson learned: the admin page could not upload the whole batch in one save; add **three at a time** in future, or hand the files to Alex.
+- [x] **Modern-car photos**: 24 photos added by Alex on 17 Sept (evening) from the iCloud folder, shrunk to web size, modern vehicles first. The six earlier photos are kept at the end of the list. Reorder or remove any of them in admin → Photo Gallery → Quick photos. Since 17 Sept (evening) the admin page shrinks photos automatically before saving, so **up to 10 photos per Save** is safe. Bigger batches: split them, or hand the files to Alex.
 - [x] **Logo**: added (trimmed and placed in the header and footer on a white plate). To swap it later: admin → Contact, Hours & About → Logo.
 - [ ] **Logo**: once saving works, admin → **Contact, Hours & About** → **Logo** → upload the red Mac Auto & Collision artwork (PNG, transparent or white background, at least 800 px wide) → **Save**. It replaces the small car icon in the header and shows in the footer.
 
