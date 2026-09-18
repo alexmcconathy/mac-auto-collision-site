@@ -2,6 +2,13 @@
 
 Newest first. One entry per shipped phase of `docs/ROADMAP.md`. Every entry was verified with `npm test` and a local render before it was pushed (a push is a deploy).
 
+## 1.11.0 — 2026-09-17 — Photos and logo added
+- 24 shop photos added from the shop's iCloud export (resized for the web, phone rotation applied, modern vehicles first), plus the six earlier photos at the end. 30 in the gallery.
+- Logo added: the full artwork in the footer, and the car-only mark beside the shop name in the header, both on a white plate. Admin fields: *Logo* and *Logo mark for the header*.
+- Header spacing tightened on screens narrower than 1320 px so the wider mark, seven menu items and the phone button fit.
+
+**How to test:** header shows the red car mark next to "MAC AUTO & COLLISION"; footer shows the full logo; the gallery shows 30 photos starting with the red Challenger and the black pickup.
+
 ## 1.10.2 — 2026-09-17 — Missing photos never show as broken tiles
 - An admin save on 17 Sept added 25 photo entries to the gallery but the photo files themselves failed to upload (too many large phone photos in one save). The live gallery showed broken images. Now any gallery entry whose file is missing is removed from the page as it loads, a missing background photo falls back to the plain dark hero, and a missing logo keeps the small icon.
 - The site check reports missing photo files as warnings with the file names instead of failing, so code changes can still ship while the shop re-uploads.

@@ -54,5 +54,6 @@
   "yelp_review_count": "1",
   "yelp_review_ids": [],
   "owner_background": "",
-  "logo_image": ""
+  "logo_image": "/images/logo.png",
+  "logo_mark_image": "/images/logo-mark.png"
 }

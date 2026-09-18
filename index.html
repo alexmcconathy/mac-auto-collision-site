@@ -259,10 +259,11 @@
   .yelp-embeds .yelp-review{display:block;background:#fff;border-radius:12px;padding:.75rem 1rem;color:#222;font-size:.95rem}
 
   /* uploaded logo */
-  .logo-img{height:52px;width:auto;max-width:260px;background:#fff;border-radius:10px;padding:4px 8px;display:block}
-  .logo.has-img .logo-mark,.logo.has-img .logo-text{display:none}
-  .logo-img-foot{height:64px;width:auto;max-width:280px;background:#fff;border-radius:10px;padding:6px 10px;margin-bottom:.75rem;display:block}
-  @media (max-width:380px){.logo-img{height:44px;max-width:200px}}
+  .logo-img{height:50px;width:auto;max-width:128px;object-fit:contain;background:#fff;border-radius:10px;padding:4px 8px;display:block}
+  .logo.has-img .logo-mark{display:none}
+  @media (max-width:1320px){nav ul{gap:1.15rem} nav a{font-size:.9rem} .nav-cta .btn{padding:.8rem 1.1rem;font-size:.95rem}}
+  .logo-img-foot{height:96px;width:auto;max-width:320px;background:#fff;border-radius:12px;padding:8px 14px;margin-bottom:.9rem;display:block}
+  @media (max-width:380px){.logo-img{height:50px;max-width:200px}}
 
   /* estimate form */
   .form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
@@ -839,7 +840,12 @@
     if (c.clarity_project_id && /^[a-z0-9]{6,20}$/i.test(String(c.clarity_project_id).trim())){ var cid = String(c.clarity_project_id).trim(); window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); }; var cl = document.createElement('script'); cl.async = true; cl.src = 'https://www.clarity.ms/tag/' + cid; document.head.appendChild(cl); }
     if (c.announcement && c.announcement.trim()){ document.getElementById('announceText').textContent = c.announcement; document.getElementById('announce').hidden = false; }
     applyYelp(c);
-    if (c.logo_image && String(c.logo_image).trim()){ var li = document.getElementById('logoImg'), lf = document.getElementById('logoImgFoot'); li.onerror = function(){ li.hidden = true; lf.hidden = true; li.closest('.logo').classList.remove('has-img'); }; li.src = img(c.logo_image); li.hidden = false; li.closest('.logo').classList.add('has-img'); lf.src = img(c.logo_image); lf.hidden = false; }
+    if (c.logo_image && String(c.logo_image).trim()){
+      var li = document.getElementById('logoImg'), lf = document.getElementById('logoImgFoot');
+      var markSrc = (c.logo_mark_image && String(c.logo_mark_image).trim()) ? img(c.logo_mark_image) : img(c.logo_image);
+      li.onerror = function(){ li.hidden = true; li.closest('.logo').classList.remove('has-img'); }; li.src = markSrc; li.hidden = false; li.closest('.logo').classList.add('has-img');
+      lf.onerror = function(){ lf.hidden = true; }; lf.src = img(c.logo_image); lf.hidden = false;
+    }
     if (c.owner_background && String(c.owner_background).trim()){ var on = document.getElementById('ownerNote'); on.textContent = c.owner_background; on.hidden = false; }
     if (c.hero_image && String(c.hero_image).trim()){
       var hero = document.getElementById('top'), url = 'url("' + img(c.hero_image).replace(/"/g, '') + '")';
